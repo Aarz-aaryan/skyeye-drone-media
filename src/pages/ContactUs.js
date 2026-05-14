@@ -52,7 +52,7 @@ const ContactUs = () => (
     <FormSection>
       <ContactForm />
       <ContactSocial />
-      <ContactInfo>aaryantahir8918@gmail.com · University City, Philadelphia, PA</ContactInfo>
+      <ContactInfo>aaryan@skyeyeaerial.com · University City, Philadelphia, PA</ContactInfo>
     </FormSection>
     <Footer />
   </PageWrapper>

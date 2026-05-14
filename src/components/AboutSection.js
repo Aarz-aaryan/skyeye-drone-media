@@ -15,9 +15,16 @@ const DroneIcon = styled(motion.div)`
   width: 100%; max-width: 400px; aspect-ratio: 1;
   background: linear-gradient(135deg, #1a2a4a, #0a1525);
   border-radius: 24px; display: flex; align-items: center;
-  justify-content: center; font-size: 8rem; margin: 0 auto;
+  justify-content: center; margin: 0 auto;
   border: 1px solid rgba(0,212,255,0.2);
   box-shadow: 0 20px 60px rgba(0,212,255,0.1);
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `;
 const SectionTag = styled.p`
   color: #00d4ff; font-weight: 600; letter-spacing: 2px;
@@ -57,7 +64,9 @@ const features = [
 const AboutSection = () => (
   <AboutSectionWrapper>
     <Container>
-      <DroneIcon initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>🚁</DroneIcon>
+      <DroneIcon initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+  <img src="https://picsum.photos/seed/drone-philly/400/400" alt="SkyEye Drone Media - Professional Aerial Videography" />
+</DroneIcon>
       <div>
         <SectionTag>About Us</SectionTag>
         <SectionTitle>We Make Properties <span>Unforgettable</span></SectionTitle>

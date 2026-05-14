@@ -15,7 +15,7 @@ const ContactSocial = () => (
   <ContactSocialWrapper>
     <SocialBtn href="#" aria-label="Instagram">📷</SocialBtn>
     <SocialBtn href="#" aria-label="YouTube">📹</SocialBtn>
-    <SocialBtn href="mailto:aaryantahir8918@gmail.com" aria-label="Email">✉️</SocialBtn>
+    <SocialBtn href="mailto:aaryan@skyeyeaerial.com" aria-label="Email">✉️</SocialBtn>
   </ContactSocialWrapper>
 );
 export default ContactSocial;

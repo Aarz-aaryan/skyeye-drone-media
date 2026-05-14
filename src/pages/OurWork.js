@@ -55,6 +55,13 @@ const WorkImage = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 3rem;
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `;
 
 const WorkInfo = styled.div`
@@ -73,6 +80,7 @@ const WorkTitle = styled.h3`
   font-size: 1.2rem;
   font-weight: 700;
   margin: 0.5rem 0;
+  color: #ffffff;
 `;
 
 const WorkDesc = styled.p`
@@ -91,9 +99,9 @@ const ComingSoon = styled.div`
 `;
 
 const projects = [
-  { title: 'University City Townhome', type: 'Residential', desc: 'Aerial sweep + interior tour. Property sold 3 weeks faster.', icon: '🏠' },
-  { title: 'Center City Office Building', type: 'Commercial', desc: 'Full perimeter aerial + 360° rooftop footage.', icon: '🏢' },
-  { title: 'West Philly New Construction', type: 'Development', desc: 'Monthly timelapse documenting construction progress.', icon: '🌆' },
+  { title: 'University City Townhome', type: 'Residential', desc: 'Aerial sweep + interior tour. Property sold 3 weeks faster.', image: 'https://picsum.photos/seed/philly-home1/600/338' },
+  { title: 'Center City Office Building', type: 'Commercial', desc: 'Full perimeter aerial + 360° rooftop footage.', image: 'https://picsum.photos/seed/philly-office/600/338' },
+  { title: 'West Philly New Construction', type: 'Development', desc: 'Monthly timelapse documenting construction progress.', image: 'https://picsum.photos/seed/philly-construction/600/338' },
 ];
 
 const OurWork = () => (
@@ -104,7 +112,7 @@ const OurWork = () => (
       <WorkGrid>
         {projects.map(p => (
           <WorkCard key={p.title}>
-            <WorkImage>{p.icon}</WorkImage>
+            <WorkImage><img src={p.image} alt={p.title} loading="lazy" /></WorkImage>
             <WorkInfo>
               <WorkType>{p.type}</WorkType>
               <WorkTitle>{p.title}</WorkTitle>
@@ -113,7 +121,7 @@ const OurWork = () => (
           </WorkCard>
         ))}
         <ComingSoon>
-          📹 More projects coming soon — contact us to see our portfolio!
+          More projects coming soon — contact us to see our full portfolio!
         </ComingSoon>
       </WorkGrid>
     </Container>
