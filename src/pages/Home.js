@@ -126,13 +126,12 @@ const Home = () => {
     <>
       <HeroWrapper>
         <HeroContent>
-          <HeroTag>Aerial Videography — University City, Philadelphia</HeroTag>
+          <HeroTag>Professional Drone Videography — University City, Philadelphia</HeroTag>
           <HeroTitle>
-            We Make Properties<br/><span>Unforgettable</span>
+            Aerial Perspectives for<br/><span>Philadelphia Real Estate</span>
           </HeroTitle>
           <HeroSub>
-            Cinematic drone footage and 360° tours that make buyers stop scrolling —
-            and actually click on your listing.
+            Stunning 4K drone footage and cinematic property tours that make buyers stop scrolling — and actually click on your listing.
           </HeroSub>
           <CTAGroup>
             <PrimaryBtn href="/contact">Get a Free Quote</PrimaryBtn>

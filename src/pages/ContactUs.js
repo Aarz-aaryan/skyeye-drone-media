@@ -47,12 +47,12 @@ const ContactUs = () => (
   <PageWrapper>
     <Header>
       <Title>Get In <span>Touch</span></Title>
-      <Subtitle>Tell us about your property and we will get back to you within 24 hours.</Subtitle>
+      <Subtitle>Professional drone videography for Philadelphia real estate. Get your free quote today.</Subtitle>
     </Header>
     <FormSection>
       <ContactForm />
       <ContactSocial />
-      <ContactInfo>aaryan@skyeyeaerial.com · University City, Philadelphia, PA</ContactInfo>
+      <ContactInfo>info@skyeyeaerial.com · (267) 555-0147 · University City, Philadelphia, PA</ContactInfo>
     </FormSection>
     <Footer />
   </PageWrapper>

@@ -46,10 +46,11 @@ const PriceTag = styled.div`
 `;
 
 const services = [
-  { icon: '🏠', title: 'Residential Listing Video', desc: 'Cinematic aerial footage + ground tour for single-family homes and townhomes. Perfect for MLS listings and social media.', price: 'Starting at $199' },
-  { icon: '🏢', title: 'Commercial Property Video', desc: 'Full aerial coverage of office buildings, retail centers, and multi-family complexes. Include 360° footage and rooftop shots.', price: 'Starting at $399' },
-  { icon: '🌐', title: '360° Virtual Tour', desc: 'Immersive 360° camera footage for property walkthroughs. Compatible with Zillow, Realtor.com, and major listing platforms.', price: 'Starting at $149' },
-  { icon: '📅', title: 'Construction Timelapse', desc: 'Ongoing drone monitoring of construction sites with monthly compiled video. Great for investors and developer marketing.', price: 'Starting at $299/mo' },
+  { icon: '🏠', title: 'Real Estate Aerial Video', desc: 'Cinematic aerial footage + ground tour for single-family homes, townhomes, and condos. Perfect for MLS listings and social media.', price: 'Starting at $199' },
+  { icon: '🏢', title: 'Property Walkthroughs', desc: 'Comprehensive aerial and ground coverage of commercial properties, office buildings, and retail centers with 360° footage.', price: 'Starting at $399' },
+  { icon: '📸', title: 'Aerial Photography', desc: 'Professional aerial photography for listings, marketing materials, and property documentation. High-resolution 4K images.', price: 'Starting at $149' },
+  { icon: '🏗️', title: 'Commercial Roofing Inspection', desc: 'Detailed drone-based roof inspections for commercial buildings. Safe, efficient, and comprehensive reports.', price: 'Starting at $249' },
+  { icon: '🎪', title: 'Event Coverage', desc: 'Aerial coverage for grand openings, events, and ceremonies. Capture the full scope of your special occasions.', price: 'Starting at $349' },
 ];
 
 const ServicesSection = () => (

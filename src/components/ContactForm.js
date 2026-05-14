@@ -35,7 +35,7 @@ const ContactForm = () => {
     e.preventDefault();
     const form = e.target;
     const body = encodeURIComponent(`Name: ${form.name?.value}\nEmail: ${form.email?.value}\n\n${form.message?.value}`);
-    window.location.href = `mailto:aaryan@skyeyeaerial.com?subject=Drone Inquiry from ${form.name?.value}&body=${body}`;
+    window.location.href = `mailto:info@skyeyeaerial.com?subject=Drone Inquiry from ${form.name?.value}&body=${body}`;
   };
   return (
     <FormWrapper onSubmit={handleSubmit}>

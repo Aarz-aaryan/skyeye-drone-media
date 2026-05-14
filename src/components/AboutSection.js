@@ -58,7 +58,7 @@ const features = [
   { emoji: '📹', title: '4K Drone Footage', desc: 'Cinematic quality at 60fps' },
   { emoji: '🌐', title: '360° Cameras', desc: 'Full immersive tours' },
   { emoji: '⚡', title: '24hr Turnaround', desc: 'Fast delivery guaranteed' },
-  { emoji: '📍', title: 'Philly Based', desc: 'Locally familiar crew' },
+  { emoji: '📍', title: 'Philly Based', desc: 'University City, Center City, Manayunk, Chestnut Hill' },
 ];
 
 const AboutSection = () => (
@@ -69,9 +69,9 @@ const AboutSection = () => (
 </DroneIcon>
       <div>
         <SectionTag>About Us</SectionTag>
-        <SectionTitle>We Make Properties <span>Unforgettable</span></SectionTitle>
+        <SectionTitle>Aerial Perspectives for <span>Philadelphia Real Estate</span></SectionTitle>
         <SectionText>SkyEye Drone Media brings cinematic aerial footage to Philadelphia's real estate market. We combine cutting-edge drone technology with an eye for composition — so every property we film looks like a million dollars.</SectionText>
-        <SectionText>Whether you're listing a $300K townhome or a $5M commercial property, aerial video is what makes buyers stop scrolling and actually click.</SectionText>
+        <SectionText>Serving the Philadelphia metro area including University City, Center City, Manayunk, and Chestnut Hill. Whether you're listing a $300K townhome or a $5M commercial property, aerial video is what makes buyers stop scrolling.</SectionText>
         <FeatureGrid>
           {features.map((f, i) => (
             <FeatureItem key={f.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
