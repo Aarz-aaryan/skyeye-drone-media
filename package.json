@@ -1,1 +1,16 @@
-ewogICJuYW1lIjogInNreWV5ZS1kcm9uZS1tZWRpYSIsCiAgInZlcnNpb24iOiAiMS4wLjAiLAogICJwcml2YXRlIjogdHJ1ZSwKICAiZGVzY3JpcHRpb24iOiAiU2t5RXllIERyb25lIE1lZGlhIOKAlCBBZXJpYWwgdmlkZW9ncmFwaHkgZm9yIHJlYWwgZXN0YXRlIGluIFBoaWxhZGVscGhpYSIsCiAgImRlcGVuZGVuY2llcyI6IHsKICAgICJyZWFjdCI6ICJeMTguMi4wIiwKICAgICJyZWFjdC1kb20iOiAiXjE4LjIuMCIsCiAgICAicmVhY3Qtcm91dGVyLWRvbSI6ICJeN[truncated]
+{
+  "name": "skyeye-drone-media",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SkyEye Drone Media — Aerial videography for real estate in Philadelphia",
+  "scripts": {
+    "start": "echo skip",
+    "build": "echo skip",
+    "test": "echo skip",
+    "eject": "echo skip"
+  },
+  "browserslist": {
+    "production": [">0.2%", "not dead"],
+    "development": ["last 1 chrome version"]
+  }
+}
