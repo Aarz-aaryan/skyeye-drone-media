@@ -1,9 +1,16 @@
 {
-  "short_name": "SkyEye DM",
   "name": "SkyEye Drone Media",
-  "icons": [{ "src": "favicon.ico", "sizes": "64x64 32x32 24x24 16x16", "type": "image/x-icon" }],
+  "short_name": "SkyEye",
+  "description": "Aerial drone videography for real estate",
   "start_url": ".",
   "display": "standalone",
+  "background_color": "#0a0f1a",
   "theme_color": "#0a0f1a",
-  "background_color": "#0a0f1a"
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
 }
