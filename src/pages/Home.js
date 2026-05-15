@@ -1,11 +1,37 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useRef, useState } from 'react';
+import styled, { keyframes } from 'styled-components';
 import AboutSection from '../components/AboutSection';
 import ServicesSection from '../components/ServicesSection';
 import OurSuccess from '../components/OurSuccess';
 import FaqSection from '../components/FaqSection';
 import SubsAndPacks from '../components/SubsAndPacks';
 import Footer from '../components/Footer';
+
+// Animations
+const gradientShift = keyframes`
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+`;
+
+const float = keyframes`
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+`;
+
+const pulse = keyframes`
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+`;
+
+const bounce = keyframes`
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+`;
+
+const shimmer = keyframes`
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+`;
 
 const HeroWrapper = styled.section`
   min-height: 100vh;
@@ -14,207 +40,387 @@ const HeroWrapper = styled.section`
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: radial-gradient(1200px 600px at 20% 20%, rgba(78,124,255,0.18), transparent 60%),
-    linear-gradient(180deg, #0a0f1a 0%, #0f1829 100%);
-  padding: 7rem 2rem 5rem;
+  background: 
+    radial-gradient(ellipse 80% 60% at 15% 25%, rgba(0, 212, 255, 0.12), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 85% 70%, rgba(0, 255, 136, 0.08), transparent 50%),
+    linear-gradient(160deg, #0a0f1a 0%, #0d1525 40%, #0a0f1a 100%);
+  background-size: 200% 200%;
+  animation: ${gradientShift} 12s ease infinite;
+  padding: 8rem 2rem 6rem;
   position: relative;
   overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(135deg, transparent 40%, rgba(0, 212, 255, 0.03) 50%, transparent 60%),
+      radial-gradient(circle at 30% 70%, rgba(0, 255, 136, 0.04) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(to top, #0a0f1a, transparent);
+    pointer-events: none;
+  }
+`;
+
+const ParallaxBg = styled.div`
+  position: absolute;
+  inset: -20%;
+  background: 
+    radial-gradient(ellipse 100% 80% at 50% 50%, rgba(0, 212, 255, 0.06), transparent 70%);
+  transform: translateY(${props => props.$scrollY * 0.3}px);
+  pointer-events: none;
 `;
 
 const HeroContent = styled.div`
-  max-width: 900px;
-  z-index: 1;
+  max-width: 950px;
+  z-index: 2;
+  position: relative;
 `;
 
 const HeroTag = styled.p`
-  color: #8fb3ff;
+  color: #00d4ff;
   font-weight: 600;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeSlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+  
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 `;
 
 const HeroTitle = styled.h1`
-  font-size: clamp(2.6rem, 6vw, 4.6rem);
-  font-weight: 900;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  font-weight: 800;
   color: #ffffff;
-  line-height: 1.05;
-  margin-bottom: 1.25rem;
+  line-height: 1.02;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
 
   span {
-    background: linear-gradient(90deg, #7bdcff, #f1c16b);
+    background: linear-gradient(135deg, #00d4ff 0%, #00ff88 50%, #f1c16b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    background-size: 200% auto;
+    animation: ${shimmer} 4s linear infinite;
+  }
+`;
+
+const TitleWord = styled.span`
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(40px) scale(0.9);
+  animation: wordReveal 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: ${props => props.$delay || 0}s;
+
+  @keyframes wordReveal {
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
   }
 `;
 
 const HeroSub = styled.p`
-  color: rgba(255,255,255,0.68);
-  font-size: 1.15rem;
-  line-height: 1.75;
-  margin-bottom: 2.25rem;
-  max-width: 720px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  opacity: 0;
+  animation: fadeSlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards;
 `;
 
 const CTAGroup = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 1.25rem;
   justify-content: center;
   flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeSlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1s forwards;
 `;
 
 const PrimaryBtn = styled.a`
-  padding: 1rem 2.5rem;
-  background: linear-gradient(135deg, #7bdcff, #f1c16b);
+  padding: 1.1rem 2.75rem;
+  background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
   color: #0a0f1a;
   font-weight: 700;
   border-radius: 50px;
   text-decoration: none;
   font-size: 1rem;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(123,220,255,0.25);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3), 0 0 60px rgba(0, 255, 136, 0.15);
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  span {
+    position: relative;
+    z-index: 1;
   }
 `;
 
 const SecondaryBtn = styled.a`
-  padding: 1rem 2.5rem;
+  padding: 1.1rem 2.75rem;
   background: transparent;
   color: #ffffff;
   font-weight: 600;
   border-radius: 50px;
   text-decoration: none;
   font-size: 1rem;
-  border: 1px solid rgba(255,255,255,0.2);
-  transition: all 0.2s;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    border-color: #7bdcff;
-    color: #7bdcff;
+    border-color: #00d4ff;
+    color: #00d4ff;
+    background: rgba(0, 212, 255, 0.08);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 212, 255, 0.1);
   }
 `;
 
 const HeroMeta = styled.div`
-  margin-top: 2.5rem;
+  margin-top: 3rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
-  color: rgba(255,255,255,0.6);
-  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  opacity: 0;
+  animation: fadeSlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1.2s forwards;
 `;
 
 const MetaItem = styled.div`
-  padding: 0.9rem 1rem;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 12px;
-  background: rgba(255,255,255,0.02);
+  padding: 1rem 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: rgba(0, 212, 255, 0.3);
+    background: rgba(0, 212, 255, 0.05);
+    transform: translateY(-2px);
+  }
+`;
+
+const ScrollIndicator = styled.div`
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: fadeSlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1.5s forwards;
+
+  span {
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  svg {
+    animation: ${bounce} 2s ease-in-out infinite;
+    color: rgba(0, 212, 255, 0.6);
+  }
 `;
 
 const Section = styled.section`
-  padding: 7rem 2rem;
+  padding: 8rem 2rem;
   background: #0a0f1a;
+  position: relative;
 `;
 
 const Container = styled.div`
-  max-width: 1100px;
+  max-width: 1150px;
   margin: 0 auto;
 `;
 
 const SectionHeader = styled.div`
   text-align: center;
-  margin-bottom: 3.5rem;
+  margin-bottom: 4rem;
 `;
 
 const SectionTag = styled.p`
-  color: #8fb3ff;
+  color: #00d4ff;
   font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  font-size: 0.8rem;
-  margin-bottom: 0.75rem;
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
   color: #ffffff;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+
   span {
-    background: linear-gradient(90deg, #7bdcff, #f1c16b);
+    background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 `;
 
 const SectionSub = styled.p`
-  color: rgba(255,255,255,0.65);
-  font-size: 1.05rem;
-  max-width: 700px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 1.1rem;
+  max-width: 680px;
   margin: 0 auto;
-  line-height: 1.7;
+  line-height: 1.75;
 `;
 
 const PortfolioGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.75rem;
 `;
 
 const PortfolioCard = styled.div`
-  border-radius: 18px;
+  border-radius: 20px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+
+  &:hover {
+    transform: translateY(-8px) rotateX(2deg);
+    border-color: rgba(0, 212, 255, 0.3);
+    box-shadow: 
+      0 30px 60px rgba(0, 0, 0, 0.4),
+      0 0 40px rgba(0, 212, 255, 0.08);
+  }
 `;
 
 const SplitVisual = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 160px;
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 212, 255, 0.1) 0%,
+      transparent 50%,
+      rgba(0, 255, 136, 0.08) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  ${PortfolioCard}:hover &::after {
+    opacity: 1;
+  }
 `;
 
 const SplitSide = styled.div`
   background: ${props => props.variant === 'before'
-    ? 'linear-gradient(135deg, #1c2435, #0f1524)'
-    : 'linear-gradient(135deg, #243a5c, #3a2c17)'};
+    ? 'linear-gradient(145deg, #151c2c, #0d1220)'
+    : 'linear-gradient(145deg, #1a2840, #0f1a2e)'};
   position: relative;
-  color: rgba(255,255,255,0.7);
-  font-size: 0.85rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      ${props => props.variant === 'before' ? '135deg' : '225deg'},
+      rgba(0, 212, 255, 0.08) 0%,
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  ${PortfolioCard}:hover &::before {
+    opacity: 1;
+  }
 `;
 
 const SplitLabel = styled.span`
   position: absolute;
-  bottom: 0.6rem;
-  left: 0.7rem;
-  font-size: 0.7rem;
-  letter-spacing: 1px;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.4);
+  z-index: 1;
 `;
 
 const CardBody = styled.div`
-  padding: 1.25rem 1.5rem 1.5rem;
+  padding: 1.5rem 1.75rem 1.75rem;
 `;
 
 const CardTitle = styled.h3`
   color: #ffffff;
-  font-size: 1.1rem;
-  margin-bottom: 0.35rem;
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
 `;
 
 const CardMeta = styled.p`
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 0.9rem;
-  line-height: 1.6;
+  line-height: 1.65;
 `;
 
 const Portfolio = [
@@ -227,30 +433,83 @@ const Portfolio = [
 ];
 
 const Home = () => {
+  const [scrollY, setScrollY] = useState(0);
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    document.querySelectorAll('.reveal, .slide-left, .slide-right, .scale-in').forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const titleWords = ['Drone Media That', 'Elevates Property'].reduce((acc, phrase, pi) => {
+    const words = phrase.split(' ');
+    words.forEach((word, wi) => {
+      const totalDelay = pi === 0 
+        ? 0.3 + wi * 0.08 
+        : 0.3 + 2 * 0.08 + 0.15 + wi * 0.08;
+      acc.push({ word, delay: totalDelay });
+    });
+    return acc;
+  }, []);
+
   return (
     <>
-      <HeroWrapper className="reveal">
+      <HeroWrapper ref={heroRef}>
+        <ParallaxBg $scrollY={scrollY} />
         <HeroContent>
-          <HeroTag>University City, Philadelphia</HeroTag>
+          <HeroTag>FAA Part 107 Certified · Insured · University City, Philadelphia</HeroTag>
           <HeroTitle>
-            Drone Media That<br />
-            <span>Elevates Property Marketing</span>
+            {titleWords.map(({ word, delay }, i) => (
+              <React.Fragment key={i}>
+                {i === 2 && <br />}
+                <TitleWord $delay={delay}>{word}</TitleWord>{' '}
+              </React.Fragment>
+            ))}
+            <span>Marketing</span>
           </HeroTitle>
           <HeroSub>
             SkyEye Drone Media creates crisp aerial footage and listing-ready edits for agents, brokers, and developers.
             Expect clean composition, reliable turnaround, and visuals that help buyers focus on the property.
           </HeroSub>
           <CTAGroup>
-            <PrimaryBtn href="/contact">Schedule a Shoot</PrimaryBtn>
+            <PrimaryBtn href="/contact"><span>Schedule a Shoot</span></PrimaryBtn>
             <SecondaryBtn href="/work">View Portfolio</SecondaryBtn>
           </CTAGroup>
           <HeroMeta>
             <MetaItem>Standard packages: $175 to $299</MetaItem>
-            <MetaItem>Luxury and commercial: $350 and up</MetaItem>
+            <MetaItem>Luxury and commercial: $350+</MetaItem>
             <MetaItem>Delivery in 24 to 48 hours</MetaItem>
-            <MetaItem>Serving University City and greater Philadelphia</MetaItem>
+            <MetaItem>Penn, Drexel, UPenn area specialists</MetaItem>
           </HeroMeta>
         </HeroContent>
+        <ScrollIndicator>
+          <span>Scroll</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+          </svg>
+        </ScrollIndicator>
       </HeroWrapper>
 
       <Section className="reveal">
@@ -264,8 +523,24 @@ const Home = () => {
             </SectionSub>
           </SectionHeader>
           <PortfolioGrid>
-            {Portfolio.map((p) => (
-              <PortfolioCard key={p.title}>
+            {Portfolio.map((p, i) => (
+              <PortfolioCard 
+                key={p.title} 
+                className={`reveal reveal-delay-${(i % 4) + 1}`}
+                onMouseMove={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  const x = e.clientX - rect.left;
+                  const y = e.clientY - rect.top;
+                  const centerX = rect.width / 2;
+                  const centerY = rect.height / 2;
+                  const rotateX = (y - centerY) / 20;
+                  const rotateY = (centerX - x) / 20;
+                  e.currentTarget.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+                }}
+              >
                 <SplitVisual>
                   <SplitSide variant="before">
                     Before

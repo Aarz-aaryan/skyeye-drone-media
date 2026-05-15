@@ -67,6 +67,7 @@ const AppShell = () => {
   return (
     <>
       <GlobalStyles />
+      <div className="noise-overlay" />
       <div className="custom-cursor" ref={cursorRef} />
       <Navbar />
       <Routes>
