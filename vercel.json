@@ -1,5 +1,7 @@
 {
-  "buildCommand": "react-scripts build",
-  "outputDirectory": "build",
-  "framework": "create-react-app"
+  "buildCommand": "",
+  "outputDirectory": "",
+  "framework": null,
+  "installCommand": "",
+  "devCommand": null
 }
