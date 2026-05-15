@@ -33,6 +33,41 @@ const shimmer = keyframes`
   100% { background-position: 200% 0; }
 `;
 
+const VIDEO_ID = 'fpNnq-M5HCG';
+
+const HeroVideoBg = styled.div`
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+
+  iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 56.25vw;
+    min-height: 100vh;
+    min-width: 177.77vh;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(10, 15, 26, 0.75) 0%,
+      rgba(10, 15, 26, 0.85) 50%,
+      rgba(10, 15, 26, 0.9) 100%
+    );
+    z-index: 1;
+  }
+`;
+
 const HeroWrapper = styled.section`
   min-height: 100vh;
   display: flex;
@@ -477,6 +512,13 @@ const Home = () => {
   return (
     <>
       <HeroWrapper ref={heroRef}>
+        <HeroVideoBg>
+          <iframe
+            src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${VIDEO_ID}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1`}
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowFullScreen
+          />
+        </HeroVideoBg>
         <ParallaxBg $scrollY={scrollY} />
         <HeroContent>
           <HeroTag>FAA Part 107 Certified · Insured · University City, Philadelphia</HeroTag>

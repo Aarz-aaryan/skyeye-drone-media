@@ -58,6 +58,7 @@
   - Task 1: Contact form validation (name/email/phone/message with inline errors + success alert)
   - Task 2: Mobile menu keyboard accessibility (focus trap, Escape to close) + SEO meta tags (OG, Twitter card)
 - 2026-05-15 PM: Copilot CLI stress-tested and confirmed working. Delegation protocol updated.
+- 2026-05-16: Full visual overhaul delegated to subagent — premium scroll effects, cinematic design, typography upgrade (Bricolage Grotesque + DM Sans), glassmorphism, parallax hero, staggered animations, noise texture, custom cursor with cyan/green states. Build successful, committed (879bef3).
 
 ## What's Done
 - Updated hero, services, about, work, contact, FAQ, and footer copy for a premium agency tone.
