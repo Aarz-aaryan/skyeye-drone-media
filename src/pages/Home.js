@@ -4,6 +4,7 @@ import AboutSection from '../components/AboutSection';
 import ServicesSection from '../components/ServicesSection';
 import OurSuccess from '../components/OurSuccess';
 import FaqSection from '../components/FaqSection';
+import SubsAndPacks from '../components/SubsAndPacks';
 import Footer from '../components/Footer';
 
 const HeroWrapper = styled.section`
@@ -13,43 +14,36 @@ const HeroWrapper = styled.section`
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: linear-gradient(180deg, #0a0f1a 0%, #0f1829 100%);
-  padding: 6rem 2rem 4rem;
+  background: radial-gradient(1200px 600px at 20% 20%, rgba(78,124,255,0.18), transparent 60%),
+    linear-gradient(180deg, #0a0f1a 0%, #0f1829 100%);
+  padding: 7rem 2rem 5rem;
   position: relative;
   overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(ellipse at center, rgba(0,212,255,0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
 `;
 
 const HeroContent = styled.div`
-  max-width: 800px;
+  max-width: 900px;
   z-index: 1;
 `;
 
 const HeroTag = styled.p`
-  color: #00d4ff;
+  color: #8fb3ff;
   font-weight: 600;
   letter-spacing: 3px;
   text-transform: uppercase;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   margin-bottom: 1.5rem;
 `;
 
 const HeroTitle = styled.h1`
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
   font-weight: 900;
   color: #ffffff;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
 
   span {
-    background: linear-gradient(90deg, #00d4ff, #00ff88);
+    background: linear-gradient(90deg, #7bdcff, #f1c16b);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -57,11 +51,11 @@ const HeroTitle = styled.h1`
 `;
 
 const HeroSub = styled.p`
-  color: rgba(255,255,255,0.6);
-  font-size: 1.2rem;
-  line-height: 1.7;
-  margin-bottom: 3rem;
-  max-width: 600px;
+  color: rgba(255,255,255,0.68);
+  font-size: 1.15rem;
+  line-height: 1.75;
+  margin-bottom: 2.25rem;
+  max-width: 720px;
   margin-left: auto;
   margin-right: auto;
 `;
@@ -75,7 +69,7 @@ const CTAGroup = styled.div`
 
 const PrimaryBtn = styled.a`
   padding: 1rem 2.5rem;
-  background: linear-gradient(135deg, #00d4ff, #00ff88);
+  background: linear-gradient(135deg, #7bdcff, #f1c16b);
   color: #0a0f1a;
   font-weight: 700;
   border-radius: 50px;
@@ -85,7 +79,7 @@ const PrimaryBtn = styled.a`
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(0,212,255,0.4);
+    box-shadow: 0 10px 30px rgba(123,220,255,0.25);
   }
 `;
 
@@ -101,48 +95,201 @@ const SecondaryBtn = styled.a`
   transition: all 0.2s;
 
   &:hover {
-    border-color: #00d4ff;
-    color: #00d4ff;
+    border-color: #7bdcff;
+    color: #7bdcff;
   }
 `;
 
-const ScrollHint = styled.div`
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  color: rgba(255,255,255,0.3);
+const HeroMeta = styled.div`
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.95rem;
+`;
+
+const MetaItem = styled.div`
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.02);
+`;
+
+const Section = styled.section`
+  padding: 7rem 2rem;
+  background: #0a0f1a;
+`;
+
+const Container = styled.div`
+  max-width: 1100px;
+  margin: 0 auto;
+`;
+
+const SectionHeader = styled.div`
+  text-align: center;
+  margin-bottom: 3.5rem;
+`;
+
+const SectionTag = styled.p`
+  color: #8fb3ff;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   font-size: 0.8rem;
-  animation: bounce 2s infinite;
+  margin-bottom: 0.75rem;
+`;
 
-  @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(8px); }
+const SectionTitle = styled.h2`
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  span {
+    background: linear-gradient(90deg, #7bdcff, #f1c16b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 `;
+
+const SectionSub = styled.p`
+  color: rgba(255,255,255,0.65);
+  font-size: 1.05rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+`;
+
+const PortfolioGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+`;
+
+const PortfolioCard = styled.div`
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.02);
+`;
+
+const SplitVisual = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 160px;
+`;
+
+const SplitSide = styled.div`
+  background: ${props => props.variant === 'before'
+    ? 'linear-gradient(135deg, #1c2435, #0f1524)'
+    : 'linear-gradient(135deg, #243a5c, #3a2c17)'};
+  position: relative;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const SplitLabel = styled.span`
+  position: absolute;
+  bottom: 0.6rem;
+  left: 0.7rem;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+`;
+
+const CardBody = styled.div`
+  padding: 1.25rem 1.5rem 1.5rem;
+`;
+
+const CardTitle = styled.h3`
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 0.35rem;
+`;
+
+const CardMeta = styled.p`
+  color: rgba(255,255,255,0.6);
+  font-size: 0.9rem;
+  line-height: 1.6;
+`;
+
+const Portfolio = [
+  { title: 'University City Townhome', detail: 'Aerial reveal + exterior coverage. Delivered MLS-ready in 24 hours.' },
+  { title: 'Center City Office', detail: 'Rooftop sweep + skyline context shots for commercial listing.' },
+  { title: 'West Philly New Build', detail: 'Progress capture and listing launch reel for developer.' },
+  { title: 'Historic Rowhome', detail: 'Ground + drone pairing to show block and walkability.' },
+  { title: 'Campus Adjacent Condo', detail: 'Highlighting proximity to Penn & Drexel with aerial approach.' },
+  { title: 'Luxury Renovation', detail: 'Sunset exterior + cinematic establishing shots.' }
+];
 
 const Home = () => {
   return (
     <>
       <HeroWrapper>
         <HeroContent>
-          <HeroTag>Professional Drone Videography — University City, Philadelphia</HeroTag>
+          <HeroTag>University City, Philadelphia</HeroTag>
           <HeroTitle>
-            Aerial Perspectives for<br/><span>Philadelphia Real Estate</span>
+            Real Estate Drone Video That<br />
+            <span>Gets Listings Noticed</span>
           </HeroTitle>
           <HeroSub>
-            Stunning 4K drone footage and cinematic property tours that make buyers stop scrolling — and actually click on your listing.
+            SkyEye Drone Media delivers clean, cinematic aerial footage and listing-ready edits for agents, brokers, and developers.
+            Fast turnaround, simple pricing, and visuals that make buyers stop scrolling.
           </HeroSub>
           <CTAGroup>
-            <PrimaryBtn href="/contact">Get a Free Quote</PrimaryBtn>
-            <SecondaryBtn href="/work">See Our Work</SecondaryBtn>
+            <PrimaryBtn href="/contact">Book a Shoot</PrimaryBtn>
+            <SecondaryBtn href="/work">View Portfolio</SecondaryBtn>
           </CTAGroup>
+          <HeroMeta>
+            <MetaItem>Standard packages: $175–$299</MetaItem>
+            <MetaItem>Luxury / commercial: $350+</MetaItem>
+            <MetaItem>Delivery in 24–48 hours</MetaItem>
+            <MetaItem>Serving University City + greater Philly</MetaItem>
+          </HeroMeta>
         </HeroContent>
-        <ScrollHint>↓ scroll</ScrollHint>
       </HeroWrapper>
+
+      <Section>
+        <Container>
+          <SectionHeader>
+            <SectionTag>Portfolio Preview</SectionTag>
+            <SectionTitle>Before & After <span>Listing Impact</span></SectionTitle>
+            <SectionSub>
+              We focus on clean aerials, balanced color, and steady movement that makes a property feel premium.
+              Here’s a look at recent-style deliverables.
+            </SectionSub>
+          </SectionHeader>
+          <PortfolioGrid>
+            {Portfolio.map((p) => (
+              <PortfolioCard key={p.title}>
+                <SplitVisual>
+                  <SplitSide variant="before">
+                    Before
+                    <SplitLabel>Before</SplitLabel>
+                  </SplitSide>
+                  <SplitSide variant="after">
+                    After
+                    <SplitLabel>After</SplitLabel>
+                  </SplitSide>
+                </SplitVisual>
+                <CardBody>
+                  <CardTitle>{p.title}</CardTitle>
+                  <CardMeta>{p.detail}</CardMeta>
+                </CardBody>
+              </PortfolioCard>
+            ))}
+          </PortfolioGrid>
+        </Container>
+      </Section>
+
       <ServicesSection />
       <AboutSection />
       <OurSuccess />
+      <SubsAndPacks />
       <FaqSection />
       <Footer />
     </>

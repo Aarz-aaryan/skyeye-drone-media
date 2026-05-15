@@ -19,20 +19,20 @@ const Title = styled.h1`
   font-weight: 900;
   color: #ffffff;
   margin-bottom: 1rem;
-  span { background: linear-gradient(90deg, #00d4ff, #00ff88); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  span { background: linear-gradient(90deg, #7bdcff, #f1c16b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 `;
 
 const Subtitle = styled.p`
   color: rgba(255,255,255,0.6);
   font-size: 1.1rem;
-  max-width: 500px;
+  max-width: 560px;
   margin: 0 auto 3rem;
   line-height: 1.7;
 `;
 
 const FormSection = styled.div`
   padding: 0 2rem 6rem;
-  max-width: 500px;
+  max-width: 540px;
   margin: 0 auto;
 `;
 
@@ -46,8 +46,8 @@ const ContactInfo = styled.div`
 const ContactUs = () => (
   <PageWrapper>
     <Header>
-      <Title>Get In <span>Touch</span></Title>
-      <Subtitle>Professional drone videography for Philadelphia real estate. Get your free quote today.</Subtitle>
+      <Title>Book a <span>Drone Shoot</span></Title>
+      <Subtitle>Tell us the property address, listing date, and the look you want. We'll reply within one business day with availability and a quote.</Subtitle>
     </Header>
     <FormSection>
       <ContactForm />

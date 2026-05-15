@@ -8,7 +8,7 @@ const SocialBtn = styled.a`
   width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
   background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
   border-radius: 50%; font-size: 1.25rem; transition: all 0.2s;
-  &:hover { border-color: #00d4ff; transform: translateY(-2px); }
+  &:hover { border-color: #7bdcff; transform: translateY(-2px); }
 `;
 
 const ContactSocial = () => (

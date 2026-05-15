@@ -1,2 +1,1 @@
-export const colors = { primary: '#00d4ff', secondary: '#00ff88', dark: '#0a0f1a' };
-export const fonts = { heading: "'Inter', sans-serif", body: "'Inter', sans-serif" };
+export const colors = { primary: '#7bdcff', secondary: '#f1c16b', dark: '#0a0f1a' };

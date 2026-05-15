@@ -17,7 +17,7 @@ const Title = styled.h1`
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 0.5rem;
-  background: linear-gradient(90deg, #00d4ff, #00ff88);
+  background: linear-gradient(90deg, #7bdcff, #f1c16b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
@@ -43,7 +43,7 @@ const WorkCard = styled.div`
 
   &:hover {
     transform: translateY(-4px);
-    border-color: rgba(0,212,255,0.4);
+    border-color: rgba(123,220,255,0.4);
   }
 `;
 
@@ -69,7 +69,7 @@ const WorkInfo = styled.div`
 `;
 
 const WorkType = styled.span`
-  color: #00d4ff;
+  color: #8fb3ff;
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -89,26 +89,29 @@ const WorkDesc = styled.p`
   line-height: 1.6;
 `;
 
-const ComingSoon = styled.div`
+const CTA = styled.div`
+  margin-top: 3rem;
   text-align: center;
-  padding: 4rem;
-  background: rgba(255,255,255,0.03);
-  border: 1px dashed rgba(255,255,255,0.15);
+  padding: 2rem;
+  border: 1px dashed rgba(255,255,255,0.12);
   border-radius: 16px;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.6);
 `;
 
 const projects = [
-  { title: 'University City Townhome', type: 'Residential', desc: 'Aerial sweep + interior tour. Property sold 3 weeks faster.', image: 'https://picsum.photos/seed/philly-home1/600/338' },
-  { title: 'Center City Office Building', type: 'Commercial', desc: 'Full perimeter aerial + 360° rooftop footage.', image: 'https://picsum.photos/seed/philly-office/600/338' },
-  { title: 'West Philly New Construction', type: 'Development', desc: 'Monthly timelapse documenting construction progress.', image: 'https://picsum.photos/seed/philly-construction/600/338' },
+  { title: 'University City Townhome', type: 'Residential', desc: 'Aerial reveal + exterior coverage. Delivered MLS-ready in 24 hours.', image: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=1200&q=80' },
+  { title: 'Center City Office Building', type: 'Commercial', desc: 'Rooftop sweep + skyline context shots for leasing brochure.', image: 'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80' },
+  { title: 'West Philly New Construction', type: 'Development', desc: 'Progress capture and listing launch reel for developer.', image: 'https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1200&q=80' },
+  { title: 'Historic Rowhome', type: 'Residential', desc: 'Neighborhood context + walkability shots for buyer confidence.', image: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=80' },
+  { title: 'Luxury Renovation', type: 'Luxury', desc: 'Sunset exterior + cinematic establishing shots.', image: 'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80' },
+  { title: 'Mixed-Use Retail', type: 'Commercial', desc: 'Street-level + aerial sweep to show traffic and access.', image: 'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80' },
 ];
 
 const OurWork = () => (
   <PageWrapper>
     <Container>
-      <Title>Our Work</Title>
-      <Subtitle>Aerial drone footage from properties across Philadelphia</Subtitle>
+      <Title>Portfolio</Title>
+      <Subtitle>Recent-style work from listings across University City, Center City, and greater Philadelphia.</Subtitle>
       <WorkGrid>
         {projects.map(p => (
           <WorkCard key={p.title}>
@@ -120,10 +123,10 @@ const OurWork = () => (
             </WorkInfo>
           </WorkCard>
         ))}
-        <ComingSoon>
-          More projects coming soon — contact us to see our full portfolio!
-        </ComingSoon>
       </WorkGrid>
+      <CTA>
+        Want to see full video deliverables? Email info@skyeyeaerial.com for a complete portfolio link.
+      </CTA>
     </Container>
     <Footer />
   </PageWrapper>

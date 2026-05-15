@@ -28,7 +28,7 @@ const Logo = styled(Link)`
   font-size: 1.25rem;
   font-weight: 800;
   color: #ffffff;
-  span { color: #00d4ff; }
+  span { color: #7bdcff; }
 `;
 
 const Tagline = styled.p`
@@ -56,7 +56,7 @@ const SocialLink = styled.a`
   color: rgba(255,255,255,0.5);
   font-size: 1.25rem;
   transition: color 0.2s;
-  &:hover { color: #00d4ff; }
+  &:hover { color: #7bdcff; }
 `;
 
 const Footer = () => (
@@ -66,7 +66,7 @@ const Footer = () => (
         <Logo to="/">SkyEye<span>DM</span></Logo>
         <Tagline>Aerial drone videography — University City, Philadelphia</Tagline>
       </Brand>
-      <Copyright>© 2025 SkyEye Drone Media. All rights reserved.</Copyright>
+      <Copyright>© 2026 SkyEye Drone Media. All rights reserved.</Copyright>
       <SocialLinks>
         <SocialLink href="#" aria-label="Instagram">📷</SocialLink>
         <SocialLink href="#" aria-label="YouTube">📹</SocialLink>

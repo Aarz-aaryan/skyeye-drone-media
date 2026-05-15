@@ -5,12 +5,12 @@ const NavWrapper = styled.nav`
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
   padding: 1.25rem 2rem;
   display: flex; justify-content: space-between; align-items: center;
-  background: rgba(10,15,26,0.9); backdrop-filter: blur(20px);
+  background: rgba(10,15,26,0.92); backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255,255,255,0.06);
 `;
 const Logo = styled.a`
   font-size: 1.25rem; font-weight: 800; text-decoration: none; color: #ffffff;
-  span { color: #00d4ff; }
+  span { color: #7bdcff; }
 `;
 const NavLinks = styled.div`
   display: flex; gap: 2.5rem;
@@ -19,7 +19,7 @@ const NavLinks = styled.div`
 const NavLink = styled.a`
   color: rgba(255,255,255,0.7); text-decoration: none;
   font-size: 0.9rem; font-weight: 500; transition: color 0.2s;
-  &:hover { color: #00d4ff; }
+  &:hover { color: #7bdcff; }
 `;
 
 const Nav = () => (

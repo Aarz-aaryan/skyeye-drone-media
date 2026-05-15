@@ -7,7 +7,7 @@ const SubsWrapper = styled.section`
 `;
 
 const Container = styled.div`
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
 `;
 
@@ -16,8 +16,16 @@ const Title = styled.h2`
   font-weight: 800;
   color: #ffffff;
   text-align: center;
-  margin-bottom: 3rem;
-  span { background: linear-gradient(90deg, #00d4ff, #00ff88); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  margin-bottom: 1rem;
+  span { background: linear-gradient(90deg, #7bdcff, #f1c16b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+`;
+
+const Subtitle = styled.p`
+  color: rgba(255,255,255,0.65);
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.7;
 `;
 
 const CardsGrid = styled.div`
@@ -35,12 +43,12 @@ const PricingCard = styled.div`
   transition: all 0.3s;
 
   ${props => props.featured && `
-    border-color: #00d4ff;
-    background: rgba(0,212,255,0.05);
+    border-color: #7bdcff;
+    background: rgba(123,220,255,0.08);
   `}
 
   &:hover {
-    border-color: rgba(0,212,255,0.4);
+    border-color: rgba(123,220,255,0.4);
   }
 `;
 
@@ -53,7 +61,7 @@ const PackName = styled.h3`
 const PackPrice = styled.div`
   font-size: 3rem;
   font-weight: 900;
-  background: linear-gradient(90deg, #00d4ff, #00ff88);
+  background: linear-gradient(90deg, #7bdcff, #f1c16b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 0.25rem;
@@ -82,34 +90,35 @@ const PackFeature = styled.li`
   padding: 0.5rem 0;
   font-size: 0.9rem;
   border-bottom: 1px solid rgba(255,255,255,0.05);
-  &::before { content: '✓'; color: #00ff88; margin-right: 0.75rem; font-weight: bold; }
+  &::before { content: '✓'; color: #f1c16b; margin-right: 0.75rem; font-weight: bold; }
 `;
 
 const SubscribeBtn = styled.a`
   display: block;
   width: 100%;
   padding: 1rem;
-  background: ${props => props.primary ? 'linear-gradient(135deg, #00d4ff, #00ff88)' : 'transparent'};
-  color: ${props => props.primary ? '#0a0f1a' : '#00d4ff'};
+  background: ${props => props.primary ? 'linear-gradient(135deg, #7bdcff, #f1c16b)' : 'transparent'};
+  color: ${props => props.primary ? '#0a0f1a' : '#7bdcff'};
   font-weight: 700;
   border-radius: 12px;
   text-decoration: none;
   text-align: center;
-  border: ${props => props.primary ? 'none' : '2px solid #00d4ff'};
+  border: ${props => props.primary ? 'none' : '2px solid #7bdcff'};
   transition: all 0.2s;
   &:hover { transform: translateY(-2px); }
 `;
 
 const packs = [
-  { name: 'Starter', price: '$199', desc: 'Perfect for single-family home listings', features: ['1 aerial video (2-3 min)', 'Ground-level walkthrough', '24hr turnaround', '2 revision rounds', 'Social media clip'], btn: 'Get Started', primary: false },
-  { name: 'Professional', price: '$399', desc: 'For agents serious about listings', features: ['Full aerial coverage', '360° camera tour', '48hr turnaround', 'Unlimited revisions', 'Raw footage included', 'Zillow-ready format'], btn: 'Get Started', primary: true, featured: true },
-  { name: 'Commercial', price: '$799', desc: 'For commercial and luxury properties', features: ['Cinematic aerial package', 'Multi-property coverage', 'Same-day turnaround option', 'Full raw footage', 'HDR color grading', '360° virtual tour'], btn: 'Contact Us', primary: false },
+  { name: 'Standard', price: '$175', desc: 'Essentials for single-family listings and condos.', features: ['Aerial highlight reel (60-90s)', '6-10 edited aerial stills', 'Delivery in 24-48 hrs', 'MLS-ready export'], btn: 'Book Standard', primary: false },
+  { name: 'Listing Plus', price: '$299', desc: 'Most popular package for featured listings.', features: ['Aerial + ground walkthrough', '2-3 minute cinematic edit', 'Social media cutdown', 'Color grade + music', '1 revision round'], btn: 'Book Listing Plus', primary: true, featured: true },
+  { name: 'Luxury / Commercial', price: '$350+', desc: 'Custom production for high-end or commercial properties.', features: ['Extended aerial coverage', 'Detail shots + skyline context', 'Advanced color grade', 'Custom shot list + planning'], btn: 'Request Luxury Quote', primary: false },
 ];
 
 const SubsAndPacks = () => (
   <SubsWrapper>
     <Container>
       <Title>Pricing <span>Packages</span></Title>
+      <Subtitle>Transparent pricing for real estate listings in University City and greater Philadelphia. No hidden fees, fast delivery.</Subtitle>
       <CardsGrid>
         {packs.map(p => (
           <PricingCard key={p.name} featured={p.featured}>

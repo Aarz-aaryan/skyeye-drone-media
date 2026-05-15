@@ -7,5 +7,5 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Inter', -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
   a { color: inherit; text-decoration: none; }
   img { max-width: 100%; }
-  ::selection { background: #00d4ff; color: #0a0f1a; }
+  ::selection { background: #7bdcff; color: #0a0f1a; }
 `;

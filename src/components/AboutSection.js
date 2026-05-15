@@ -12,13 +12,21 @@ const Container = styled.div`
   @media (max-width: 768px) { grid-template-columns: 1fr; }
 `;
 const DroneIcon = styled(motion.div)`
-  width: 100%; max-width: 400px; aspect-ratio: 1;
+  width: 100%; max-width: 420px; aspect-ratio: 4/5;
   background: linear-gradient(135deg, #1a2a4a, #0a1525);
   border-radius: 24px; display: flex; align-items: center;
   justify-content: center; margin: 0 auto;
-  border: 1px solid rgba(0,212,255,0.2);
-  box-shadow: 0 20px 60px rgba(0,212,255,0.1);
+  border: 1px solid rgba(123,220,255,0.2);
+  box-shadow: 0 20px 60px rgba(123,220,255,0.1);
   overflow: hidden;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.45) 100%);
+  }
   
   img {
     width: 100%;
@@ -27,12 +35,12 @@ const DroneIcon = styled(motion.div)`
   }
 `;
 const SectionTag = styled.p`
-  color: #00d4ff; font-weight: 600; letter-spacing: 2px;
+  color: #8fb3ff; font-weight: 600; letter-spacing: 2px;
   text-transform: uppercase; font-size: 0.85rem; margin-bottom: 1rem;
 `;
 const SectionTitle = styled.h2`
   font-size: 2.5rem; font-weight: 800; color: #ffffff; margin-bottom: 1.5rem; line-height: 1.2;
-  span { background: linear-gradient(90deg, #00d4ff, #00ff88); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  span { background: linear-gradient(90deg, #7bdcff, #f1c16b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 `;
 const SectionText = styled.p`
   color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 1.05rem; margin-bottom: 1.5rem;
@@ -51,27 +59,27 @@ const FeatureTitle = styled.h4`
   color: #ffffff; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem;
 `;
 const FeatureDesc = styled.p`
-  color: rgba(255,255,255,0.5); font-size: 0.8rem; line-height: 1.5;
+  color: rgba(255,255,255,0.55); font-size: 0.8rem; line-height: 1.5;
 `;
 
 const features = [
-  { emoji: '📹', title: '4K Drone Footage', desc: 'Cinematic quality at 60fps' },
-  { emoji: '🌐', title: '360° Cameras', desc: 'Full immersive tours' },
-  { emoji: '⚡', title: '24hr Turnaround', desc: 'Fast delivery guaranteed' },
-  { emoji: '📍', title: 'Philly Based', desc: 'University City, Center City, Manayunk, Chestnut Hill' },
+  { emoji: '🎥', title: 'Listing-first edits', desc: 'MLS-ready delivery with clean framing and pacing.' },
+  { emoji: '⚡', title: 'Fast turnaround', desc: 'Most projects delivered in 24–48 hours.' },
+  { emoji: '📍', title: 'Local expertise', desc: 'University City + Philly neighborhoods.' },
+  { emoji: '✅', title: 'Licensed + insured', desc: 'Professional operation and compliance.' },
 ];
 
 const AboutSection = () => (
   <AboutSectionWrapper>
     <Container>
       <DroneIcon initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-  <img src="https://picsum.photos/seed/drone-philly/400/400" alt="SkyEye Drone Media - Professional Aerial Videography" />
-</DroneIcon>
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Philadelphia skyline and riverfront" />
+      </DroneIcon>
       <div>
-        <SectionTag>About Us</SectionTag>
-        <SectionTitle>Aerial Perspectives for <span>Philadelphia Real Estate</span></SectionTitle>
-        <SectionText>SkyEye Drone Media brings cinematic aerial footage to Philadelphia's real estate market. We combine cutting-edge drone technology with an eye for composition — so every property we film looks like a million dollars.</SectionText>
-        <SectionText>Serving the Philadelphia metro area including University City, Center City, Manayunk, and Chestnut Hill. Whether you're listing a $300K townhome or a $5M commercial property, aerial video is what makes buyers stop scrolling.</SectionText>
+        <SectionTag>About SkyEye</SectionTag>
+        <SectionTitle>Designed for <span>Real Estate Marketing</span></SectionTitle>
+        <SectionText>SkyEye Drone Media focuses on real estate. That means we understand listing timelines, what agents need for MLS, and how to make properties feel premium without overproducing.</SectionText>
+        <SectionText>We serve University City and greater Philadelphia with consistent, professional visuals — aerials, walkthroughs, and detail coverage that helps buyers understand a property fast.</SectionText>
         <FeatureGrid>
           {features.map((f, i) => (
             <FeatureItem key={f.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>

@@ -11,7 +11,7 @@ const Container = styled.div`
 `;
 const Title = styled.h2`
   font-size: 2.5rem; font-weight: 800; color: #ffffff; margin-bottom: 3rem;
-  span { background: linear-gradient(90deg, #00d4ff, #00ff88); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  span { background: linear-gradient(90deg, #7bdcff, #f1c16b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 `;
 const StatsGrid = styled.div`
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
@@ -19,8 +19,8 @@ const StatsGrid = styled.div`
 `;
 const StatBox = styled(motion.div)`padding: 2rem;`;
 const StatNumber = styled.div`
-  font-size: 3rem; font-weight: 900;
-  background: linear-gradient(90deg, #00d4ff, #00ff88);
+  font-size: 2.4rem; font-weight: 800;
+  background: linear-gradient(90deg, #7bdcff, #f1c16b);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text; margin-bottom: 0.5rem;
 `;
@@ -30,16 +30,16 @@ const StatLabel = styled.div`
 `;
 
 const stats = [
-  { number: '50+', label: 'Properties Filmed' },
-  { number: '100%', label: '5-Star Reviews' },
-  { number: '24hr', label: 'Avg Turnaround' },
-  { number: '5★', label: 'Client Rating' },
+  { number: '24-48hr', label: 'Turnaround' },
+  { number: '4K', label: 'Video Delivery' },
+  { number: 'University City', label: 'Local Focus' },
+  { number: 'MLS-Ready', label: 'Formats' },
 ];
 
 const OurSuccess = () => (
   <SuccessWrapper>
     <Container>
-      <Title>Our <span>Results</span></Title>
+      <Title>What You Can <span>Expect</span></Title>
       <StatsGrid>
         {stats.map((s, i) => (
           <StatBox key={s.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
