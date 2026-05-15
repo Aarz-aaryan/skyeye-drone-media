@@ -35,6 +35,7 @@ const Tagline = styled.p`
   color: rgba(255,255,255,0.4);
   font-size: 0.85rem;
   margin-top: 0.5rem;
+  line-height: 1.6;
 `;
 
 const Copyright = styled.p`
@@ -54,22 +55,24 @@ const SocialLinks = styled.div`
 
 const SocialLink = styled.a`
   color: rgba(255,255,255,0.5);
-  font-size: 1.25rem;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   transition: color 0.2s;
   &:hover { color: #7bdcff; }
 `;
 
 const Footer = () => (
-  <FooterWrapper>
+  <FooterWrapper className="reveal">
     <Container>
       <Brand>
         <Logo to="/">SkyEye<span>DM</span></Logo>
-        <Tagline>Aerial drone videography — University City, Philadelphia</Tagline>
+        <Tagline>Aerial drone videography for University City and greater Philadelphia.</Tagline>
       </Brand>
       <Copyright>© 2026 SkyEye Drone Media. All rights reserved.</Copyright>
       <SocialLinks>
-        <SocialLink href="#" aria-label="Instagram">📷</SocialLink>
-        <SocialLink href="#" aria-label="YouTube">📹</SocialLink>
+        <SocialLink href="#" aria-label="Instagram">Instagram</SocialLink>
+        <SocialLink href="#" aria-label="YouTube">YouTube</SocialLink>
       </SocialLinks>
     </Container>
   </FooterWrapper>

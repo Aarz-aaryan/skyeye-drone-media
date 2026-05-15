@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 
 const AboutSectionWrapper = styled.section`
   padding: 8rem 2rem;
@@ -11,7 +10,7 @@ const Container = styled.div`
   display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
   @media (max-width: 768px) { grid-template-columns: 1fr; }
 `;
-const DroneIcon = styled(motion.div)`
+const DroneIcon = styled.div`
   width: 100%; max-width: 420px; aspect-ratio: 4/5;
   background: linear-gradient(135deg, #1a2a4a, #0a1525);
   border-radius: 24px; display: flex; align-items: center;
@@ -48,12 +47,9 @@ const SectionText = styled.p`
 const FeatureGrid = styled.div`
   display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
 `;
-const FeatureItem = styled(motion.div)`
+const FeatureItem = styled.div`
   background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
   border-radius: 12px; padding: 1.25rem;
-`;
-const FeatureEmoji = styled.div`
-  font-size: 1.5rem; margin-bottom: 0.5rem;
 `;
 const FeatureTitle = styled.h4`
   color: #ffffff; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem;
@@ -63,27 +59,26 @@ const FeatureDesc = styled.p`
 `;
 
 const features = [
-  { emoji: '🎥', title: 'Listing-first edits', desc: 'MLS-ready delivery with clean framing and pacing.' },
-  { emoji: '⚡', title: 'Fast turnaround', desc: 'Most projects delivered in 24–48 hours.' },
-  { emoji: '📍', title: 'Local expertise', desc: 'University City + Philly neighborhoods.' },
-  { emoji: '✅', title: 'Licensed + insured', desc: 'Professional operation and compliance.' },
+  { title: 'Listing-ready edits', desc: 'MLS delivery with clean framing and dependable pacing.' },
+  { title: 'Fast turnaround', desc: 'Most projects delivered in 24 to 48 hours.' },
+  { title: 'Local expertise', desc: 'University City and greater Philadelphia coverage.' },
+  { title: 'Licensed and insured', desc: 'Professional operation with commercial liability coverage.' },
 ];
 
 const AboutSection = () => (
-  <AboutSectionWrapper>
+  <AboutSectionWrapper className="reveal">
     <Container>
-      <DroneIcon initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+      <DroneIcon>
         <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Philadelphia skyline and riverfront" />
       </DroneIcon>
       <div>
         <SectionTag>About SkyEye</SectionTag>
-        <SectionTitle>Designed for <span>Real Estate Marketing</span></SectionTitle>
-        <SectionText>SkyEye Drone Media focuses on real estate. That means we understand listing timelines, what agents need for MLS, and how to make properties feel premium without overproducing.</SectionText>
-        <SectionText>We serve University City and greater Philadelphia with consistent, professional visuals — aerials, walkthroughs, and detail coverage that helps buyers understand a property fast.</SectionText>
+        <SectionTitle>Built for <span>Real Estate Marketing</span></SectionTitle>
+        <SectionText>SkyEye Drone Media focuses on real estate. We understand listing timelines, MLS requirements, and the level of polish that moves buyers without feeling overproduced.</SectionText>
+        <SectionText>We serve University City and greater Philadelphia with consistent visuals, including aerials, walkthroughs, and detail coverage that helps buyers understand a property quickly.</SectionText>
         <FeatureGrid>
-          {features.map((f, i) => (
-            <FeatureItem key={f.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
-              <FeatureEmoji>{f.emoji}</FeatureEmoji>
+          {features.map((f) => (
+            <FeatureItem key={f.title}>
               <FeatureTitle>{f.title}</FeatureTitle>
               <FeatureDesc>{f.desc}</FeatureDesc>
             </FeatureItem>

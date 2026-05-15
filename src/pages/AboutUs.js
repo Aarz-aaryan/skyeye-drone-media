@@ -32,9 +32,9 @@ const Subtitle = styled.p`
 
 const AboutUs = () => (
   <PageWrapper>
-    <Header>
+    <Header className="reveal">
       <Title>About <span>SkyEye</span></Title>
-      <Subtitle>Philadelphia-based drone videography focused exclusively on real estate. We prioritize clean compositions, fast delivery, and visuals that move listings.</Subtitle>
+      <Subtitle>Philadelphia-based drone videography focused on real estate. We prioritize clean compositions, dependable delivery, and visuals that support the sale.</Subtitle>
     </Header>
     <AboutSection />
     <OurSuccess />

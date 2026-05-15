@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 
 const FormWrapper = styled.form`
   width: 100%; max-width: 500px; margin: 0 auto;
@@ -21,12 +20,13 @@ const Textarea = styled.textarea`
   &:focus { outline: none; border-color: #7bdcff; }
   &::placeholder { color: rgba(255,255,255,0.4); }
 `;
-const SubmitBtn = styled(motion.button)`
+const SubmitBtn = styled.button`
   width: 100%; padding: 1rem;
   background: linear-gradient(135deg, #7bdcff, #f1c16b);
   color: #0a0f1a; font-weight: 700; font-size: 1rem;
   border: none; border-radius: 12px; cursor: pointer;
   font-family: 'Inter', sans-serif;
+  transition: transform 0.2s, box-shadow 0.2s;
   &:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(123,220,255,0.25); }
 `;
 
@@ -39,12 +39,12 @@ const ContactForm = () => {
   };
   return (
     <FormWrapper onSubmit={handleSubmit}>
-      <Input type="text" name="name" placeholder="Your Name" required />
-      <Input type="email" name="email" placeholder="Your Email" required />
+      <Input type="text" name="name" placeholder="Full Name" required />
+      <Input type="email" name="email" placeholder="Email Address" required />
       <Input type="tel" name="phone" placeholder="Phone Number" />
       <Input type="text" name="address" placeholder="Property Address" />
-      <Textarea name="message" placeholder="Tell us about the listing, desired date, and any shot requests..." required />
-      <SubmitBtn whileTap={{ scale: 0.98 }} type="submit">Send Message</SubmitBtn>
+      <Textarea name="message" placeholder="Share the listing details, preferred date, and any shot priorities." required />
+      <SubmitBtn type="submit">Send Inquiry</SubmitBtn>
     </FormWrapper>
   );
 };

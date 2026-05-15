@@ -218,49 +218,49 @@ const CardMeta = styled.p`
 `;
 
 const Portfolio = [
-  { title: 'University City Townhome', detail: 'Aerial reveal + exterior coverage. Delivered MLS-ready in 24 hours.' },
-  { title: 'Center City Office', detail: 'Rooftop sweep + skyline context shots for commercial listing.' },
-  { title: 'West Philly New Build', detail: 'Progress capture and listing launch reel for developer.' },
-  { title: 'Historic Rowhome', detail: 'Ground + drone pairing to show block and walkability.' },
-  { title: 'Campus Adjacent Condo', detail: 'Highlighting proximity to Penn & Drexel with aerial approach.' },
-  { title: 'Luxury Renovation', detail: 'Sunset exterior + cinematic establishing shots.' }
+  { title: 'University City Townhome', detail: 'Aerial reveal and exterior coverage delivered MLS-ready within 24 hours.' },
+  { title: 'Center City Office', detail: 'Rooftop sweep and skyline context shots for a commercial listing.' },
+  { title: 'West Philly New Build', detail: 'Progress capture and listing launch reel for the developer.' },
+  { title: 'Historic Rowhome', detail: 'Ground and drone pairing to show the block and walkability.' },
+  { title: 'Campus Adjacent Condo', detail: 'Highlighting proximity to Penn and Drexel with a focused aerial approach.' },
+  { title: 'Luxury Renovation', detail: 'Sunset exterior and establishing shots with controlled pacing.' }
 ];
 
 const Home = () => {
   return (
     <>
-      <HeroWrapper>
+      <HeroWrapper className="reveal">
         <HeroContent>
           <HeroTag>University City, Philadelphia</HeroTag>
           <HeroTitle>
-            Real Estate Drone Video That<br />
-            <span>Gets Listings Noticed</span>
+            Drone Media That<br />
+            <span>Elevates Property Marketing</span>
           </HeroTitle>
           <HeroSub>
-            SkyEye Drone Media delivers clean, cinematic aerial footage and listing-ready edits for agents, brokers, and developers.
-            Fast turnaround, simple pricing, and visuals that make buyers stop scrolling.
+            SkyEye Drone Media creates crisp aerial footage and listing-ready edits for agents, brokers, and developers.
+            Expect clean composition, reliable turnaround, and visuals that help buyers focus on the property.
           </HeroSub>
           <CTAGroup>
-            <PrimaryBtn href="/contact">Book a Shoot</PrimaryBtn>
+            <PrimaryBtn href="/contact">Schedule a Shoot</PrimaryBtn>
             <SecondaryBtn href="/work">View Portfolio</SecondaryBtn>
           </CTAGroup>
           <HeroMeta>
-            <MetaItem>Standard packages: $175–$299</MetaItem>
-            <MetaItem>Luxury / commercial: $350+</MetaItem>
-            <MetaItem>Delivery in 24–48 hours</MetaItem>
-            <MetaItem>Serving University City + greater Philly</MetaItem>
+            <MetaItem>Standard packages: $175 to $299</MetaItem>
+            <MetaItem>Luxury and commercial: $350 and up</MetaItem>
+            <MetaItem>Delivery in 24 to 48 hours</MetaItem>
+            <MetaItem>Serving University City and greater Philadelphia</MetaItem>
           </HeroMeta>
         </HeroContent>
       </HeroWrapper>
 
-      <Section>
+      <Section className="reveal">
         <Container>
           <SectionHeader>
             <SectionTag>Portfolio Preview</SectionTag>
-            <SectionTitle>Before & After <span>Listing Impact</span></SectionTitle>
+            <SectionTitle>Before and After <span>Listing Impact</span></SectionTitle>
             <SectionSub>
-              We focus on clean aerials, balanced color, and steady movement that makes a property feel premium.
-              Here’s a look at recent-style deliverables.
+              We focus on steady aerials, balanced color, and framing that makes each property feel premium.
+              Here's a look at the style we deliver.
             </SectionSub>
           </SectionHeader>
           <PortfolioGrid>

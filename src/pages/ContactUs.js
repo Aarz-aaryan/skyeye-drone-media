@@ -45,11 +45,11 @@ const ContactInfo = styled.div`
 
 const ContactUs = () => (
   <PageWrapper>
-    <Header>
-      <Title>Book a <span>Drone Shoot</span></Title>
-      <Subtitle>Tell us the property address, listing date, and the look you want. We'll reply within one business day with availability and a quote.</Subtitle>
+    <Header className="reveal">
+      <Title>Schedule a <span>Drone Shoot</span></Title>
+      <Subtitle>Share the property address, target listing date, and the style you want. We will reply within one business day with availability and a quote.</Subtitle>
     </Header>
-    <FormSection>
+    <FormSection className="reveal">
       <ContactForm />
       <ContactSocial />
       <ContactInfo>info@skyeyeaerial.com · (267) 555-0147 · University City, Philadelphia, PA</ContactInfo>

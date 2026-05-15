@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 
 const ServicesWrapper = styled.section`
   padding: 8rem 2rem; background: #0a0f1a;
@@ -22,7 +21,7 @@ const Title = styled.h2`
 const ServicesGrid = styled.div`
   display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;
 `;
-const ServiceCard = styled(motion.div)`
+const ServiceCard = styled.div`
   background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
   border-radius: 20px; padding: 2.5rem; transition: all 0.3s;
   &:hover { border-color: rgba(123,220,255,0.4); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(123,220,255,0.1); }
@@ -31,7 +30,8 @@ const IconBox = styled.div`
   width: 60px; height: 60px;
   background: linear-gradient(135deg, rgba(123,220,255,0.2), rgba(241,193,107,0.08));
   border-radius: 16px; display: flex; align-items: center; justify-content: center;
-  font-size: 1.75rem; margin-bottom: 1.5rem;
+  font-size: 0.95rem; margin-bottom: 1.5rem;
+  letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.8);
 `;
 const ServiceTitle = styled.h3`
   font-size: 1.25rem; font-weight: 700; color: #ffffff; margin-bottom: 0.75rem;
@@ -46,23 +46,23 @@ const PriceTag = styled.div`
 `;
 
 const services = [
-  { icon: '🏠', title: 'Listing Drone Package', desc: 'Cinematic aerial coverage + ground-level establishing shots for MLS, Zillow, and social. Clean, stabilized edits with licensed music.', price: 'Standard: $175–$299' },
-  { icon: '🎬', title: 'Walkthrough + Drone', desc: 'Full property story: exterior drone reveal, interior walkthrough, and neighborhood context shots. Perfect for featured listings.', price: 'From $299' },
-  { icon: '🏢', title: 'Luxury & Commercial', desc: 'High-end exteriors, rooftops, and architectural details with cinematic pacing and custom color grade.', price: 'Luxury/Commercial: $350+' },
-  { icon: '📸', title: 'Aerial Photo Set', desc: 'High-resolution aerial stills and angle options for listing cover images and marketing collateral.', price: 'From $175' },
-  { icon: '🏗️', title: 'Construction Progress', desc: 'Monthly or milestone-based aerial documentation with consistent framing for developers.', price: 'Custom quote' },
+  { icon: 'MLS', title: 'Listing Drone Package', desc: 'Aerial coverage and ground-level establishing shots for MLS, Zillow, and marketing. Stabilized edits with licensed music.', price: 'Standard: $175 to $299' },
+  { icon: 'TOUR', title: 'Walkthrough and Drone', desc: 'Exterior drone reveal, interior walkthrough, and neighborhood context for featured listings.', price: 'From $299' },
+  { icon: 'LUX', title: 'Luxury and Commercial', desc: 'High-end exteriors, rooftops, and architectural details with controlled pacing and refined color.', price: 'Luxury and commercial: $350 and up' },
+  { icon: 'STILLS', title: 'Aerial Photo Set', desc: 'High-resolution aerial stills and angle options for listing cover images and collateral.', price: 'From $175' },
+  { icon: 'PROGRESS', title: 'Construction Progress', desc: 'Monthly or milestone-based aerial documentation with consistent framing for developers.', price: 'Custom quote' },
 ];
 
 const ServicesSection = () => (
-  <ServicesWrapper>
+  <ServicesWrapper className="reveal">
     <Container>
       <Header>
         <Tag>Services</Tag>
-        <Title>Drone Video That <span>Elevates Listings</span></Title>
+        <Title>Drone Media That <span>Elevates Listings</span></Title>
       </Header>
       <ServicesGrid>
-        {services.map((s, i) => (
-          <ServiceCard key={s.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
+        {services.map((s) => (
+          <ServiceCard key={s.title}>
             <IconBox>{s.icon}</IconBox>
             <ServiceTitle>{s.title}</ServiceTitle>
             <ServiceDesc>{s.desc}</ServiceDesc>

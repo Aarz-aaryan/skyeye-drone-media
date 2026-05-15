@@ -12,7 +12,7 @@ const PageWrapper = styled.div`
 
 const MovieDetail = () => (
   <PageWrapper>
-    <p>Project detail view — coming soon.</p>
+    <p>Project detail view coming soon.</p>
   </PageWrapper>
 );
 

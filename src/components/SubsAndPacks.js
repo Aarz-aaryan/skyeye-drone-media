@@ -90,7 +90,7 @@ const PackFeature = styled.li`
   padding: 0.5rem 0;
   font-size: 0.9rem;
   border-bottom: 1px solid rgba(255,255,255,0.05);
-  &::before { content: '✓'; color: #f1c16b; margin-right: 0.75rem; font-weight: bold; }
+  &::before { content: '•'; color: #f1c16b; margin-right: 0.75rem; font-weight: bold; }
 `;
 
 const SubscribeBtn = styled.a`
@@ -109,16 +109,16 @@ const SubscribeBtn = styled.a`
 `;
 
 const packs = [
-  { name: 'Standard', price: '$175', desc: 'Essentials for single-family listings and condos.', features: ['Aerial highlight reel (60-90s)', '6-10 edited aerial stills', 'Delivery in 24-48 hrs', 'MLS-ready export'], btn: 'Book Standard', primary: false },
-  { name: 'Listing Plus', price: '$299', desc: 'Most popular package for featured listings.', features: ['Aerial + ground walkthrough', '2-3 minute cinematic edit', 'Social media cutdown', 'Color grade + music', '1 revision round'], btn: 'Book Listing Plus', primary: true, featured: true },
-  { name: 'Luxury / Commercial', price: '$350+', desc: 'Custom production for high-end or commercial properties.', features: ['Extended aerial coverage', 'Detail shots + skyline context', 'Advanced color grade', 'Custom shot list + planning'], btn: 'Request Luxury Quote', primary: false },
+  { name: 'Standard', price: '$175', desc: 'Essentials for single-family listings and condos.', features: ['Aerial highlight reel (60 to 90 seconds)', '6 to 10 edited aerial stills', 'Delivery in 24 to 48 hours', 'MLS-ready export'], btn: 'Book Standard', primary: false },
+  { name: 'Listing Plus', price: '$299', desc: 'Most popular package for featured listings.', features: ['Aerial and ground walkthrough', '2 to 3 minute cinematic edit', 'Social media cutdown', 'Color grade and licensed music', 'One revision round'], btn: 'Book Listing Plus', primary: true, featured: true },
+  { name: 'Luxury and Commercial', price: '$350 and up', desc: 'Custom production for high-end or commercial properties.', features: ['Extended aerial coverage', 'Detail shots and skyline context', 'Advanced color grade', 'Custom shot list and planning'], btn: 'Request Luxury Quote', primary: false },
 ];
 
 const SubsAndPacks = () => (
-  <SubsWrapper>
+  <SubsWrapper className="reveal">
     <Container>
       <Title>Pricing <span>Packages</span></Title>
-      <Subtitle>Transparent pricing for real estate listings in University City and greater Philadelphia. No hidden fees, fast delivery.</Subtitle>
+      <Subtitle>Clear pricing for real estate listings in University City and greater Philadelphia. No hidden fees, dependable delivery.</Subtitle>
       <CardsGrid>
         {packs.map(p => (
           <PricingCard key={p.name} featured={p.featured}>

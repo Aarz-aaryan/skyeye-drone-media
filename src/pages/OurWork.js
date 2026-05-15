@@ -93,26 +93,26 @@ const CTA = styled.div`
   margin-top: 3rem;
   text-align: center;
   padding: 2rem;
-  border: 1px dashed rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 16px;
   color: rgba(255,255,255,0.6);
 `;
 
 const projects = [
-  { title: 'University City Townhome', type: 'Residential', desc: 'Aerial reveal + exterior coverage. Delivered MLS-ready in 24 hours.', image: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=1200&q=80' },
-  { title: 'Center City Office Building', type: 'Commercial', desc: 'Rooftop sweep + skyline context shots for leasing brochure.', image: 'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80' },
-  { title: 'West Philly New Construction', type: 'Development', desc: 'Progress capture and listing launch reel for developer.', image: 'https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1200&q=80' },
-  { title: 'Historic Rowhome', type: 'Residential', desc: 'Neighborhood context + walkability shots for buyer confidence.', image: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=80' },
-  { title: 'Luxury Renovation', type: 'Luxury', desc: 'Sunset exterior + cinematic establishing shots.', image: 'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80' },
-  { title: 'Mixed-Use Retail', type: 'Commercial', desc: 'Street-level + aerial sweep to show traffic and access.', image: 'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80' },
+  { title: 'University City Townhome', type: 'Residential', desc: 'Aerial reveal and exterior coverage delivered MLS-ready within 24 hours.', image: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=1200&q=80' },
+  { title: 'Center City Office Building', type: 'Commercial', desc: 'Rooftop sweep and skyline context shots for leasing materials.', image: 'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80' },
+  { title: 'West Philly New Construction', type: 'Development', desc: 'Progress capture and listing launch reel for the developer.', image: 'https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1200&q=80' },
+  { title: 'Historic Rowhome', type: 'Residential', desc: 'Neighborhood context and walkability angles for buyer confidence.', image: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=80' },
+  { title: 'Luxury Renovation', type: 'Luxury', desc: 'Sunset exterior and establishing shots with controlled pacing.', image: 'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80' },
+  { title: 'Mixed-Use Retail', type: 'Commercial', desc: 'Street-level and aerial sweep to show traffic and access.', image: 'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80' },
 ];
 
 const OurWork = () => (
   <PageWrapper>
     <Container>
-      <Title>Portfolio</Title>
-      <Subtitle>Recent-style work from listings across University City, Center City, and greater Philadelphia.</Subtitle>
-      <WorkGrid>
+      <Title className="reveal">Portfolio</Title>
+      <Subtitle className="reveal">Recent-style work from listings across University City, Center City, and greater Philadelphia.</Subtitle>
+      <WorkGrid className="reveal">
         {projects.map(p => (
           <WorkCard key={p.title}>
             <WorkImage><img src={p.image} alt={p.title} loading="lazy" /></WorkImage>
@@ -124,8 +124,8 @@ const OurWork = () => (
           </WorkCard>
         ))}
       </WorkGrid>
-      <CTA>
-        Want to see full video deliverables? Email info@skyeyeaerial.com for a complete portfolio link.
+      <CTA className="reveal">
+        Want to see full video deliverables? Email info@skyeyeaerial.com for the full portfolio link.
       </CTA>
     </Container>
     <Footer />

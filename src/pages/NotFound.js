@@ -46,11 +46,11 @@ const BackLink = styled.a`
 
 const NotFound = () => (
   <>
-    <PageWrapper>
+    <PageWrapper className="reveal">
       <Content>
         <Big404>404</Big404>
-        <Title>Signal Lost</Title>
-        <Text>This page went off the map — like a drone losing signal.</Text>
+        <Title>Page Not Found</Title>
+        <Text>The page you're looking for doesn't exist or has moved.</Text>
         <BackLink href="/">Back to Home</BackLink>
       </Content>
     </PageWrapper>

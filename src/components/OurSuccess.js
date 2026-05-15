@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 
 const SuccessWrapper = styled.section`
   padding: 6rem 2rem;
@@ -17,7 +16,7 @@ const StatsGrid = styled.div`
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
   @media (max-width: 768px) { grid-template-columns: repeat(2, 1fr); }
 `;
-const StatBox = styled(motion.div)`padding: 2rem;`;
+const StatBox = styled.div`padding: 2rem;`;
 const StatNumber = styled.div`
   font-size: 2.4rem; font-weight: 800;
   background: linear-gradient(90deg, #7bdcff, #f1c16b);
@@ -30,19 +29,19 @@ const StatLabel = styled.div`
 `;
 
 const stats = [
-  { number: '24-48hr', label: 'Turnaround' },
-  { number: '4K', label: 'Video Delivery' },
-  { number: 'University City', label: 'Local Focus' },
-  { number: 'MLS-Ready', label: 'Formats' },
+  { number: '24 to 48 hr', label: 'Turnaround' },
+  { number: '4K', label: 'Video delivery' },
+  { number: 'University City', label: 'Local focus' },
+  { number: 'MLS ready', label: 'Formats' },
 ];
 
 const OurSuccess = () => (
-  <SuccessWrapper>
+  <SuccessWrapper className="reveal">
     <Container>
       <Title>What You Can <span>Expect</span></Title>
       <StatsGrid>
-        {stats.map((s, i) => (
-          <StatBox key={s.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
+        {stats.map((s) => (
+          <StatBox key={s.label}>
             <StatNumber>{s.number}</StatNumber>
             <StatLabel>{s.label}</StatLabel>
           </StatBox>
