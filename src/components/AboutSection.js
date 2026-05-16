@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 const float = keyframes`
@@ -42,7 +42,6 @@ const Container = styled.div`
 
 const VisualSide = styled.div`
   position: relative;
-  transform: translateX(${props => props.$scrollY * 0.08}px);
 `;
 
 const DroneIcon = styled.div`
@@ -126,9 +125,7 @@ const BadgeValue = styled.div`
   background-clip: text;
 `;
 
-const ContentSide = styled.div`
-  transform: translateX(${(props) => -props.$scrollY * 0.05}px);
-`;
+const ContentSide = styled.div``;
 
 const SectionTag = styled.p`
   color: #00d4ff;
@@ -205,16 +202,6 @@ const features = [
 ];
 
 const AboutSection = () => {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -237,7 +224,7 @@ const AboutSection = () => {
   return (
     <AboutSectionWrapper className="reveal">
       <Container>
-        <VisualSide className="slide-left" $scrollY={scrollY}>
+        <VisualSide className="slide-left">
           <DroneIcon>
             <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Philadelphia skyline and riverfront" />
           </DroneIcon>
@@ -246,7 +233,7 @@ const AboutSection = () => {
             <BadgeValue>24-48 HR</BadgeValue>
           </VisualBadge>
         </VisualSide>
-        <ContentSide className="slide-right" $scrollY={scrollY}>
+        <ContentSide className="slide-right">
           <SectionTag>About SkyEye</SectionTag>
           <SectionTitle>Built for <span>Real Estate Marketing</span></SectionTitle>
           <SectionText>SkyEye Drone Media focuses on real estate. We understand listing timelines, MLS requirements, and the level of polish that moves buyers without feeling overproduced.</SectionText>
