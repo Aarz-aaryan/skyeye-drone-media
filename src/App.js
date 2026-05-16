@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Nav';
 import Home from './pages/Home';
@@ -11,6 +11,19 @@ import { GlobalStyles } from './components/GlobalStyles';
 const AppShell = () => {
   const cursorRef = useRef(null);
   const location = useLocation();
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const updateScrollProgress = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener('scroll', updateScrollProgress, { passive: true });
+    return () => window.removeEventListener('scroll', updateScrollProgress);
+  }, []);
 
   useEffect(() => {
     const cursor = cursorRef.current;
@@ -69,6 +82,7 @@ const AppShell = () => {
       <GlobalStyles />
       <div className="noise-overlay" />
       <div className="custom-cursor" ref={cursorRef} />
+      <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

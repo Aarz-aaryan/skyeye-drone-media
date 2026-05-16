@@ -23,6 +23,17 @@ export const GlobalStyles = createGlobalStyle`
   ::-webkit-scrollbar-track { background: #0a0f1a; }
   ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #00d4ff, #00ff88); border-radius: 3px; }
 
+  /* Scroll progress bar */
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #00d4ff, #00ff88);
+    z-index: 9999;
+    transition: width 0.1s linear;
+  }
+
   /* Noise texture overlay */
   .noise-overlay {
     position: fixed;

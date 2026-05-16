@@ -58,7 +58,7 @@ const HeroVideoBg = styled.div`
   .thumbnail {
     position: absolute;
     inset: -5%;
-    background-image: url(https://img.youtube.com/vi/fpNnq-M5HCG/maxresdefault.jpg);
+    background-image: url(https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1920&q=80);
     background-size: cover;
     background-position: center;
     animation: ${kenBurns} 20s ease-in-out infinite alternate;
