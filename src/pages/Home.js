@@ -47,6 +47,12 @@ const shimmer = keyframes`
   100% { background-position: 200% 0; }
 `;
 
+const shimmerBorder = keyframes`
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+`;
+
 const VIDEO_ID = 'fpNnq-M5HCG';
 
 const HeroVideoBg = styled.div`
@@ -62,6 +68,8 @@ const HeroVideoBg = styled.div`
     background-size: cover;
     background-position: center;
     animation: ${kenBurns} 20s ease-in-out infinite alternate;
+    transform: translateY(${props => props.$scrollY ? props.$scrollY * 0.15 : 0}px);
+    transition: transform 0.1s linear-out;
   }
 
   &::after {
@@ -104,9 +112,8 @@ const PlayButton = styled.div`
   }
 
   svg {
-    width: 32px;
-    height: 32px;
-    fill: #00d4ff;
+    width: 24px;
+    height: 24px;
     margin-left: 4px;
   }
 `;
@@ -163,6 +170,8 @@ const HeroContent = styled.div`
   max-width: 950px;
   z-index: 2;
   position: relative;
+  transform: translateY(${props => props.$scrollY ? -props.$scrollY * 0.08 : 0}px);
+  transition: transform 0.1s linear-out;
 `;
 
 const HeroTag = styled.p`
@@ -174,10 +183,29 @@ const HeroTag = styled.p`
   margin-bottom: 1.5rem;
   opacity: 0;
   animation: fadeSlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+
   @keyframes fadeSlideUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+
+  span.tag-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  span.tag-separator {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(0, 212, 255, 0.5);
+    flex-shrink: 0;
   }
 `;
 
@@ -235,6 +263,11 @@ const CTAGroup = styled.div`
   animation: fadeSlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1s forwards;
 `;
 
+const MagneticWrapper = styled.div`
+  display: inline-block;
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+`;
+
 const PrimaryBtn = styled.a`
   padding: 1.1rem 2.75rem;
   background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
@@ -243,7 +276,7 @@ const PrimaryBtn = styled.a`
   border-radius: 50px;
   text-decoration: none;
   font-size: 1rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
 
@@ -271,6 +304,10 @@ const PrimaryBtn = styled.a`
   }
 `;
 
+const MagneticBtn = styled.div`
+  display: inline-block;
+`;
+
 const SecondaryBtn = styled.a`
   padding: 1.1rem 2.75rem;
   background: transparent;
@@ -280,7 +317,7 @@ const SecondaryBtn = styled.a`
   text-decoration: none;
   font-size: 1rem;
   border: 1.5px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease, color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     border-color: #00d4ff;
@@ -519,7 +556,34 @@ const Home = () => {
       setScrollY(window.scrollY);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    // Magnetic button effect
+    const handleMouseMove = (e) => {
+      if (!window.magneticBtns) return;
+      window.magneticBtns.forEach((wrapper) => {
+        if (!wrapper) return;
+        const rect = wrapper.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const deltaX = e.clientX - centerX;
+        const deltaY = e.clientY - centerY;
+        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        const maxDist = 120;
+        if (distance < maxDist) {
+          const strength = (maxDist - distance) / maxDist;
+          wrapper.style.transform = `translate(${deltaX * strength * 0.25}px, ${deltaY * strength * 0.25}px)`;
+        } else {
+          wrapper.style.transform = 'translate(0, 0)';
+        }
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
   }, []);
 
   useEffect(() => {
@@ -555,12 +619,18 @@ const Home = () => {
   return (
     <>
       <HeroWrapper ref={heroRef}>
-        <HeroVideoBg>
+        <HeroVideoBg $scrollY={scrollY}>
           <div className="thumbnail" />
         </HeroVideoBg>
         <ParallaxBg $scrollY={scrollY} />
-        <HeroContent>
-          <HeroTag>FAA Part 107 Certified · Insured · University City, Philadelphia</HeroTag>
+        <HeroContent $scrollY={scrollY}>
+          <HeroTag>
+            <span className="tag-item">FAA Part 107 Certified</span>
+            <span className="tag-separator" />
+            <span className="tag-item">Insured</span>
+            <span className="tag-separator" />
+            <span className="tag-item">University City, Philadelphia</span>
+          </HeroTag>
           <HeroTitle>
             {titleWords.map(({ word, delay }, i) => (
               <React.Fragment key={i}>
@@ -575,8 +645,12 @@ const Home = () => {
             Expect clean composition, reliable turnaround, and visuals that help buyers focus on the property.
           </HeroSub>
           <CTAGroup>
-            <PrimaryBtn href="/contact"><span>Schedule a Shoot</span></PrimaryBtn>
-            <SecondaryBtn href="/work">View Portfolio</SecondaryBtn>
+            <MagneticWrapper ref={el => { if (el) window.magneticBtns = window.magneticBtns || []; if (!window.magneticBtns.includes(el)) window.magneticBtns.push(el); }}>
+              <PrimaryBtn href="/contact"><span>Schedule a Shoot</span></PrimaryBtn>
+            </MagneticWrapper>
+            <MagneticWrapper ref={el => { if (el) window.magneticBtns = window.magneticBtns || []; if (!window.magneticBtns.includes(el)) window.magneticBtns.push(el); }}>
+              <SecondaryBtn href="/work">View Portfolio</SecondaryBtn>
+            </MagneticWrapper>
           </CTAGroup>
           <HeroMeta>
             <MetaItem>Standard packages: $175 to $299</MetaItem>
@@ -586,8 +660,8 @@ const Home = () => {
           </HeroMeta>
         </HeroContent>
         <PlayButton>
-          <svg viewBox="0 0 24 24">
-            <path d="M8 5v14l11-7z"/>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00d4ff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <polygon points="5,3 19,12 5,21" fill="#00d4ff" stroke="none"/>
           </svg>
         </PlayButton>
         <ScrollIndicator>

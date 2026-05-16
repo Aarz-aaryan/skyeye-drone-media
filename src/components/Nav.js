@@ -17,9 +17,9 @@ const NavWrapper = styled.nav`
   justify-content: space-between;
   align-items: center;
   background: rgba(10, 15, 26, ${props => props.$scrolled ? 0.95 : 0.85});
-  backdrop-filter: blur(${props => props.$scrolled ? 20 : 12}px);
+  backdrop-filter: blur(${props => Math.min(12 + props.$scrollProgress * 20, 32)}px);
   border-bottom: 1px solid rgba(255, 255, 255, ${props => props.$scrolled ? 0.1 : 0.06});
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.3s ease, border-color 0.4s ease;
 `;
 
 const Logo = styled.a`
@@ -195,6 +195,7 @@ const FOCUSABLE_SELECTORS = 'a[href], button:not([disabled]), [tabindex]:not([ta
 const Nav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const menuRef = useRef(null);
   const hamburgerRef = useRef(null);
   const firstFocusableRef = useRef(null);
@@ -203,6 +204,9 @@ const Nav = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollHeight > 0 ? window.scrollY / scrollHeight : 0;
+      setScrollProgress(progress);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -263,7 +267,7 @@ const Nav = () => {
   }, [mobileMenuOpen]);
 
   return (
-    <NavWrapper $scrolled={scrolled}>
+    <NavWrapper $scrolled={scrolled} $scrollProgress={scrollProgress}>
       <Logo href="/">SkyEye<span>DM</span></Logo>
       <NavLinks>
         <NavLink href="/">Home</NavLink>

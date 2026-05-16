@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const shimmerMove = keyframes`
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+`;
 
 const FormWrapper = styled.form`
   width: 100%; max-width: 500px; margin: 0 auto;
@@ -24,12 +29,39 @@ const Textarea = styled.textarea`
 `;
 const SubmitBtn = styled.button`
   width: 100%; padding: 1rem;
-  background: linear-gradient(135deg, #7bdcff, #f1c16b);
+  background: linear-gradient(135deg, #00d4ff, #00ff88);
+  background-size: 200% auto;
   color: #0a0f1a; font-weight: 700; font-size: 1rem;
   border: none; border-radius: 12px; cursor: pointer;
   font-family: 'Inter', sans-serif;
-  transition: transform 0.2s, box-shadow 0.2s;
-  &:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(123,220,255,0.25); }
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.3s;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(90deg, #00d4ff, #00ff88, #00d4ff);
+    background-size: 200% auto;
+    border-radius: 13px;
+    z-index: -1;
+    animation: ${shimmerMove} 2.5s linear infinite;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #00d4ff, #00ff88);
+    border-radius: 12px;
+    z-index: -1;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.35), 0 0 40px rgba(0, 255, 136, 0.15);
+  }
 `;
 const ErrorMsg = styled.span`
   display: block;
