@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 const shimmer = keyframes`
   0% { background-position: -200% 0; }
@@ -139,7 +139,7 @@ const PackPrice = styled.div`
   background-clip: text;
   margin-bottom: 0.35rem;
   background-size: 200% auto;
-  animation: ${props => props.featured ? `${shimmer} 4s linear infinite` : 'none'};
+  animation: ${props => (props.featured ? css`${shimmer} 4s linear infinite` : 'none')};
 `;
 
 const PackPeriod = styled.span`
