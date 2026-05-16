@@ -40,13 +40,18 @@ const shimmerBorder = keyframes`
 `;
 
 const VIDEO_ID = 'fpNnq-M5HCg';
-const HERO_VIDEO_URL = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${VIDEO_ID}&controls=0&showinfo=0&modestbranding=1`;
+const HERO_VIDEO_URL = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${VIDEO_ID}&controls=0&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&playsinline=1&enablejsapi=1`;
+const HERO_THUMBNAIL_URL = `https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`;
 
 const HeroVideoBg = styled.div`
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   overflow: hidden;
+  background-image: url(${HERO_THUMBNAIL_URL});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   iframe {
     position: absolute;
@@ -60,6 +65,7 @@ const HeroVideoBg = styled.div`
     object-fit: cover;
     border: 0;
     pointer-events: none;
+    display: block;
   }
 
   &::after {
@@ -68,9 +74,9 @@ const HeroVideoBg = styled.div`
     inset: 0;
     background: linear-gradient(
       to bottom,
-      rgba(10, 15, 26, 0.58) 0%,
-      rgba(10, 15, 26, 0.74) 55%,
-      rgba(10, 15, 26, 0.86) 100%
+      rgba(10, 15, 26, 0.35) 0%,
+      rgba(10, 15, 26, 0.58) 55%,
+      rgba(10, 15, 26, 0.74) 100%
     );
     z-index: 1;
   }
@@ -595,9 +601,11 @@ const Home = () => {
           <iframe
             src={HERO_VIDEO_URL}
             title="SkyEye Drone Media Hero Background Video"
-            allow="autoplay; encrypted-media; picture-in-picture"
+            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
             referrerPolicy="strict-origin-when-cross-origin"
             tabIndex="-1"
+            loading="eager"
+            aria-hidden="true"
           />
         </HeroVideoBg>
         <ParallaxBg $scrollY={scrollY} />
