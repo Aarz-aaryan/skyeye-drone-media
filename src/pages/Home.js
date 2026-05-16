@@ -23,6 +23,20 @@ const pulse = keyframes`
   50% { opacity: 1; transform: scale(1.05); }
 `;
 
+const kenBurns = keyframes`
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.1) translate(-1%, -0.5%);
+  }
+`;
+
+const playFadeIn = keyframes`
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+`;
+
 const bounce = keyframes`
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(8px); }
@@ -41,17 +55,13 @@ const HeroVideoBg = styled.div`
   z-index: 0;
   overflow: hidden;
 
-  iframe {
+  .thumbnail {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100vw;
-    height: 56.25vw;
-    min-height: 100vh;
-    min-width: 177.77vh;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    border: none;
+    inset: -5%;
+    background-image: url(https://img.youtube.com/vi/fpNnq-M5HCG/maxresdefault.jpg);
+    background-size: cover;
+    background-position: center;
+    animation: ${kenBurns} 20s ease-in-out infinite alternate;
   }
 
   &::after {
@@ -65,6 +75,39 @@ const HeroVideoBg = styled.div`
       rgba(10, 15, 26, 0.9) 100%
     );
     z-index: 1;
+  }
+`;
+
+const PlayButton = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(0, 212, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(0, 212, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: ${playFadeIn} 0.8s ease-out 1.8s forwards;
+  opacity: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(0, 212, 255, 0.25);
+    border-color: rgba(0, 212, 255, 0.7);
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  svg {
+    width: 32px;
+    height: 32px;
+    fill: #00d4ff;
+    margin-left: 4px;
   }
 `;
 
@@ -513,11 +556,7 @@ const Home = () => {
     <>
       <HeroWrapper ref={heroRef}>
         <HeroVideoBg>
-          <iframe
-            src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${VIDEO_ID}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1`}
-            allow="autoplay; encrypted-media; picture-in-picture"
-            allowFullScreen
-          />
+          <div className="thumbnail" />
         </HeroVideoBg>
         <ParallaxBg $scrollY={scrollY} />
         <HeroContent>
@@ -546,6 +585,11 @@ const Home = () => {
             <MetaItem>Penn, Drexel, UPenn area specialists</MetaItem>
           </HeroMeta>
         </HeroContent>
+        <PlayButton>
+          <svg viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </PlayButton>
         <ScrollIndicator>
           <span>Scroll</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
