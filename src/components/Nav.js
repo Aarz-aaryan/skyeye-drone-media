@@ -97,14 +97,18 @@ const NavLink = styled.a`
 `;
 
 const NavCtaBtn = styled.a`
-  padding: 0.65rem 1.5rem;
-  background: linear-gradient(135deg, #00d4ff, #00ff88);
-  color: #0a0f1a;
-  font-weight: 700;
-  font-size: 0.85rem;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  && {
+    padding: 0.65rem 1.5rem;
+    background: linear-gradient(135deg, #00d4ff, #00ff88);
+    color: #0a0f1a;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+  }
 
   &:hover {
     transform: translateY(-2px);
