@@ -23,20 +23,6 @@ const pulse = keyframes`
   50% { opacity: 1; transform: scale(1.05); }
 `;
 
-const kenBurns = keyframes`
-  0% {
-    transform: scale(1) translate(0, 0);
-  }
-  100% {
-    transform: scale(1.1) translate(-1%, -0.5%);
-  }
-`;
-
-const playFadeIn = keyframes`
-  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-`;
-
 const bounce = keyframes`
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(8px); }
@@ -53,23 +39,27 @@ const shimmerBorder = keyframes`
   100% { background-position: 0% 50%; }
 `;
 
-const VIDEO_ID = 'fpNnq-M5HCG';
+const VIDEO_ID = 'fpNnq-M5HCg';
+const HERO_VIDEO_URL = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${VIDEO_ID}&controls=0&showinfo=0&modestbranding=1`;
 
 const HeroVideoBg = styled.div`
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: -1;
   overflow: hidden;
 
-  .thumbnail {
+  iframe {
     position: absolute;
-    inset: -5%;
-    background-image: url(https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1920&q=80);
-    background-size: cover;
-    background-position: center;
-    animation: ${kenBurns} 20s ease-in-out infinite alternate;
-    transform: translateY(${props => props.$scrollY ? props.$scrollY * 0.15 : 0}px);
-    transition: transform 0.1s linear-out;
+    top: 50%;
+    left: 50%;
+    width: 177.78vh;
+    min-width: 100%;
+    height: 56.25vw;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    border: 0;
+    pointer-events: none;
   }
 
   &::after {
@@ -78,43 +68,18 @@ const HeroVideoBg = styled.div`
     inset: 0;
     background: linear-gradient(
       to bottom,
-      rgba(10, 15, 26, 0.75) 0%,
-      rgba(10, 15, 26, 0.85) 50%,
-      rgba(10, 15, 26, 0.9) 100%
+      rgba(10, 15, 26, 0.58) 0%,
+      rgba(10, 15, 26, 0.74) 55%,
+      rgba(10, 15, 26, 0.86) 100%
     );
     z-index: 1;
   }
-`;
 
-const PlayButton = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 2;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: rgba(0, 212, 255, 0.15);
-  backdrop-filter: blur(8px);
-  border: 2px solid rgba(0, 212, 255, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: ${playFadeIn} 0.8s ease-out 1.8s forwards;
-  opacity: 0;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background: rgba(0, 212, 255, 0.25);
-    border-color: rgba(0, 212, 255, 0.7);
-    transform: translate(-50%, -50%) scale(1.1);
-  }
-
-  svg {
-    width: 24px;
-    height: 24px;
-    margin-left: 4px;
+  @media (max-width: 768px) {
+    iframe {
+      width: 240vh;
+      height: 60vw;
+    }
   }
 `;
 
@@ -125,25 +90,10 @@ const HeroWrapper = styled.section`
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: 
-    radial-gradient(ellipse 80% 60% at 15% 25%, rgba(0, 212, 255, 0.12), transparent 55%),
-    radial-gradient(ellipse 60% 50% at 85% 70%, rgba(0, 255, 136, 0.08), transparent 50%),
-    linear-gradient(160deg, #0a0f1a 0%, #0d1525 40%, #0a0f1a 100%);
-  background-size: 200% 200%;
-  animation: ${gradientShift} 12s ease infinite;
+  background: #0a0f1a;
   padding: 8rem 2rem 6rem;
   position: relative;
   overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: 
-      linear-gradient(135deg, transparent 40%, rgba(0, 212, 255, 0.03) 50%, transparent 60%),
-      radial-gradient(circle at 30% 70%, rgba(0, 255, 136, 0.04) 0%, transparent 40%);
-    pointer-events: none;
-  }
 
   &::after {
     content: '';
@@ -164,6 +114,28 @@ const ParallaxBg = styled.div`
     radial-gradient(ellipse 100% 80% at 50% 50%, rgba(0, 212, 255, 0.06), transparent 70%);
   transform: translateY(${props => props.$scrollY * 0.3}px);
   pointer-events: none;
+`;
+
+const BottomBackgroundEffect = styled.div`
+  height: 260px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 25%, rgba(0, 212, 255, 0.12), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 85% 70%, rgba(0, 255, 136, 0.08), transparent 50%),
+    linear-gradient(160deg, #0a0f1a 0%, #0d1525 40%, #0a0f1a 100%);
+  background-size: 200% 200%;
+  animation: ${gradientShift} 12s ease infinite;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, transparent 40%, rgba(0, 212, 255, 0.03) 50%, transparent 60%),
+      radial-gradient(circle at 30% 70%, rgba(0, 255, 136, 0.04) 0%, transparent 40%);
+    pointer-events: none;
+  }
 `;
 
 const HeroContent = styled.div`
@@ -619,8 +591,14 @@ const Home = () => {
   return (
     <>
       <HeroWrapper ref={heroRef}>
-        <HeroVideoBg $scrollY={scrollY}>
-          <div className="thumbnail" />
+        <HeroVideoBg>
+          <iframe
+            src={HERO_VIDEO_URL}
+            title="SkyEye Drone Media Hero Background Video"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            referrerPolicy="strict-origin-when-cross-origin"
+            tabIndex="-1"
+          />
         </HeroVideoBg>
         <ParallaxBg $scrollY={scrollY} />
         <HeroContent $scrollY={scrollY}>
@@ -659,11 +637,6 @@ const Home = () => {
             <MetaItem>Penn, Drexel, UPenn area specialists</MetaItem>
           </HeroMeta>
         </HeroContent>
-        <PlayButton>
-          <svg viewBox="0 0 24 24" fill="none" stroke="#00d4ff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <polygon points="5,3 19,12 5,21" fill="#00d4ff" stroke="none"/>
-          </svg>
-        </PlayButton>
         <ScrollIndicator>
           <span>Scroll</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -726,6 +699,7 @@ const Home = () => {
       <OurSuccess />
       <SubsAndPacks />
       <FaqSection />
+      <BottomBackgroundEffect aria-hidden="true" />
       <Footer />
     </>
   );
