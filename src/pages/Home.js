@@ -264,11 +264,12 @@ const PrimaryBtn = styled.a`
     inset: 0;
     background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
     opacity: 0;
+    border-radius: inherit;
     transition: opacity 0.3s ease;
   }
 
   &:hover {
-    transform: translateY(-3px) scale(1.02);
+    transform: translateY(-3px);
     box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3), 0 0 60px rgba(0, 255, 136, 0.15);
   }
 
