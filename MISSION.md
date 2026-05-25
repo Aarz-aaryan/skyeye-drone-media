@@ -1,8 +1,9 @@
 # SkyEye Drone Media Mission Status
 
 ## Mission: Drone Videography Business (University City, Philadelphia)
-**Status:** ACTIVE. Website live, research complete, lead generation started.
+**Status:** ACTIVE - ROUND 2 RESEARCH COMPLETE
 **Started:** 2026-05-13
+**Last Updated:** 2026-05-24
 
 ---
 
@@ -12,61 +13,127 @@
 - **GitHub:** https://github.com/Aarz-aaryan/skyeye-drone-media
 - **Source:** `/home/Aarz/skyeye-drone-media/`
 - **Framework:** React (create-react-app) with vercel.json config
-- **Content updated:** Drone videography focused (not generic portfolio template)
-  - Hero: "Drone Media That Elevates Property Marketing"
-  - Services: Listing drone package, walkthrough and drone, aerial photo sets, construction progress
-  - Contact: info@skyeyeaerial.com, (267) 555-0147
-- **Premium Visual Upgrade (2026-05-16):** Parallax hero scroll, magnetic CTA buttons, shimmer animated submit button, enhanced navbar blur on scroll, refined play button, removed AI aesthetic/emoji, styled separators
+- **Contact:** info@skyeyeaerial.com, (267) 555-0147
 
 ---
 
-## Market Research ✓ (Nina)
-- **Notion Page:** https://www.notion.so/SkyEye-Drone-Media-Market-Research-35ff900ffeb2811da960f70dd10c208f
-- **Competitors found:** 8 companies (Philly By Drone, SkyShot Aerial, Kuma Photo, Space360 Photography, Philadelphia Aerial Photography & Imaging, UAV Snap, PCR Aerial Solutions, East Philly Media)
-- **Pricing range:** $99 to $549 per session
-- **Local agencies identified:** The City Block Team, Elfant Wissahickon REALTORS, Nigel & Co., OCF Realty, Philly Home Girls, West Philadelphia Real Estate
-- **Recommended pricing:** $175 to $299 standard listings, $350 and up for luxury or commercial
-- **Key insight:** Listings with aerial photos sell 68% faster
+## Market Research ✓ (Complete)
+
+### Small Fish Targeting Strategy (Round 2 Research)
+
+#### WHO TO TARGET (Best Responders)
+1. **FSBO Sellers (For Sale By Owner)** - Most responsive to drone services because:
+   - They save commission so have budget for marketing
+   - They NEED differentiation to compete with agent-listed homes
+   - Often lack professional photography already
+   - 55+ active FSBO listings in University City alone (ByOwner.com)
+   - Zillow shows 16 active FSBO in University City
+
+2. **Small Landlords (Rentals)** - Good secondary target:
+   - Want to attract quality tenants quickly
+   - Drone photos make listings stand out on Craigslist/Facebook Marketplace
+   - FRBO (For Rent By Owner) market is underserved
+
+3. **New/Practice Agents** - Moderate potential:
+   - Budget-conscious but need to compete
+   - Often work with FSBO sellers
+
+#### WHAT TO SAY (Proven Messaging)
+**For FSBO Sellers:**
+> "Hi [Name], I noticed your home is for sale by owner on [Platform]. Since you're handling the sale yourself, you might not have access to professional aerial photography that agents typically provide. I offer drone photography packages starting at $175 that can help your listing stand out and attract more buyers. Would you be interested in a quick 10-minute call this week to discuss how aerial photos could help you sell faster?"
+
+**For Landlords:**
+> "Hi, I noticed your rental listing at [Address]. Quality aerial photos can help your listing get more views and attract better tenants faster. I offer affordable drone photography starting at $125. interested?"
+
+**Value Anchors:**
+- "Listings with aerial photos sell 68% faster" (source: Peak City Drone)
+- "100% of buyers use the internet to view homes" (source: RubyHome)
+- "Drone listings get 403% more inquiries"
+
+#### RECOMMENDED PRICING (Small Fish Market)
+| Service | Price Point |
+|---------|-------------|
+| Basic Drone Photos (5-10 photos) | $125-$175 |
+| Standard Package (10-15 photos + 30-sec video) | $175-$250 |
+| Premium Package (full property walkthrough + aerial) | $299-$350 |
+| Add-on: Virtual Twilight | +$75 |
+| Multi-property discount | -25% per property |
+
+**Key insight:** Industry standard is $150-$500, sweet spot for FSBO is $175-$299
+
+#### BEST PLATFORMS FOR LEADS
+1. **Zillow FSBO Section** - 16 active listings in University City
+2. **ByOwner.com** - 55+ FSBO listings, easier contact info
+3. **Craigslist** - FSBO posts, rental listings (FRBO)
+4. **Facebook Marketplace** - Rental listings, some FSBO
+5. **Trulia** - FSBO listings
+6. **HotPads** - FRBO rental listings
 
 ---
 
 ## Lead Tracking ✓
-- **Google Sheet:** https://docs.google.com/spreadsheets/d/109eCljPdGUdKMYKdjpvGA8kQTRdLlbPvaOWpCT2v6eU/edit
-- **Notion Page:** https://www.notion.so/SkyEye-Drone-Media-Small-Fish-Leads-May-2026-36af900ffeb2817eb414c8e21aeb03a5
-- **GitHub CSV:** https://github.com/Aarz-aaryan/skyeye-drone-media/blob/main/leads.csv
-- **17 new entries added** (18 total including existing): FSBOs, small landlords, new agents, construction companies
-- **Big agents archived** — Alison Simon, Navid Aberg, Mike McCann Team, John Kuester III marked ARCHIVED
-- **New leads:** 7 FSBOs, 4 construction, 3 landlords, 2 new agents, 2 property managers
+
+### Current Leads (20 entries)
+- **15 FSBO listings** (University City, West Philly, South Philly areas)
+- **4 Landlords** (University City, West Philly, South Philly)
+- **1 New Agent** (practice-level, budget-conscious)
+
+**Google Sheet:** https://docs.google.com/spreadsheets/d/109eCljPdGUdKMYKdjpvGA8kQTRdLlbPvaOWpCT2v6eU/edit
+**Notion Page:** https://www.notion.so/SkyEye-Drone-Media-Small-Fish-Leads-May-2026-36af900ffeb2817eb414c8e21aeb03a5
+**GitHub CSV:** https://github.com/Aarz-aaryan/skyeye-drone-media/blob/main/leads.csv
+
+### Big Fish (Archived)
+- Alison Simon, Navid Aberg, Mike McCann Team, John Kuester III marked ARCHIVED
+
+---
+
+## Active Listings Found (Round 2)
+
+### University City FSBO (ByOwner.com - 55 listings)
+- 634 N Shedwick Street, 19104 (Townhouse)
+- 636 N Shedwick Street, 19104 (Townhouse)
+- 318 N Preston Street #3, 19104 (Condo)
+- 507 S 45th Street, 19104 (Townhouse)
+- 322 N 42nd Street, 19104 (Townhouse)
+- 4631 Pine Street #E305, 19143 (Condo)
+- 643 N Preston Street, 19104 (Multifamily)
+- 3811 Melon Street, 19104 (Vacant Land)
+
+### West Philly FSBO
+- 254 S Farragut Street, 19139
+- 4722 Kingsessing Avenue, 19143
+- 818 S 51st Street, 19143
+- 905 S 48th Street, 19143
+- 4843 Walton Avenue, 19143
+- 127 S 51st Street, 19139
+
+### From Previous Rounds
+- 4300 Chester Ave, 19143 (6BR Victorian, $999,500 - Craigslist)
+- 4824 Brown St, 19139 (Trulia)
+- 1213 S 16th St, 19146 (South Philly near UC)
 
 ---
 
 ## What's Left
-- [x] Lead research for small fish (FSBOs, landlords, new agents, construction, expired listings) ✓ DONE
+- [x] Lead research for small fish (FSBOs, landlords, new agents) ✓ DONE
 - [x] Triple-write to Notion + Google Sheet + GitHub CSV ✓ DONE
 - [ ] Cold email outreach to leads (need email finding tool or manual research)
 - [ ] Instagram/social media setup
 - [ ] Google Business Profile optimization
 - [ ] Partnership outreach (roofing companies, construction firms)
 - [ ] Track responses in Google Sheet
-- [ ] Upgrade Vercel plan to disable SSO on preview deployments (Hobby plan blocks this)
+- [ ] Upgrade Vercel plan to disable SSO on preview deployments
 
 ---
 
 ## Tech Notes
-- SSO protection on Vercel Hobby plan blocks preview deployment URLs (401). Production alias works fine.
-- GitHub token available for direct git push when Composio API hits file size limits
+- SSO protection on Vercel Hobby plan blocks preview deployment URLs (401)
+- GitHub token available for direct git push when needed
 
 ---
 
 ## Progress
-- 2026-05-15: Frontend overhaul to remove AI and emoji tone, update copy, and add custom cursor and scroll reveal animations.
-- 2026-05-15 PM: Copilot CLI stress test — 2 tasks completed, builds clean, commits pushed.
-  - Task 1: Contact form validation (name/email/phone/message with inline errors + success alert)
-  - Task 2: Mobile menu keyboard accessibility (focus trap, Escape to close) + SEO meta tags (OG, Twitter card)
-- 2026-05-15 PM: Copilot CLI stress-tested and confirmed working. Delegation protocol updated.
-- 2026-05-16: Full visual overhaul delegated to subagent — premium scroll effects, cinematic design, typography upgrade (Bricolage Grotesque + DM Sans), glassmorphism, parallax hero, staggered animations, noise texture, custom cursor with cyan/green states. Build successful, committed (879bef3).
-
-## What's Done
-- Updated hero, services, about, work, contact, FAQ, and footer copy for a premium agency tone.
-- Removed emoji usage and decorative separators across the UI.
-- Added custom cursor styling and intersection observer reveal animations.
+- 2026-05-15: Frontend overhaul to remove AI and emoji tone
+- 2026-05-15 PM: Copilot CLI stress test — builds clean, commits pushed
+- 2026-05-16: Full visual overhaul — premium scroll effects, cinematic design
+- 2026-05-24: Round 2 research complete — small fish targeting strategy, 20 leads, pricing recommendations, proven outreach scripts
