@@ -3,7 +3,7 @@
 ## Mission: Drone Videography Business (University City, Philadelphia)
 **Status:** COMPLETE - 100 LEAD TARGET ACHIEVED
 **Started:** 2026-05-13
-**Last Updated:** 2026-05-24
+**Last Updated:** 2026-05-25
 
 ---
 
@@ -164,3 +164,51 @@ Each of the 100 leads has a unique personalized email draft in Column K:
 - 2026-05-15 PM: Copilot CLI stress test — builds clean, commits pushed
 - 2026-05-16: Full visual overhaul — premium scroll effects, cinematic design
 - 2026-05-24: Round 2 research complete — small fish targeting strategy, 20 leads, pricing recommendations, proven outreach scripts
+
+---
+
+## May 25 Session — Blockers Documented, Outreach Phase
+
+### What Was Done
+1. Reddit FSBO/real estate lead mining — captured 4 marketing intel signals
+2. Fresh FSBO listings multi-platform scrape — ran across Zillow, ByOwner, HotPads, Facebook Marketplace, Redfin, Craigslist, Brave Search
+3. Buying signal monitoring — identified high-intent r/philly thread
+
+### Marketing Intel Captured
+1. **r/philly** — "Looking for a Philly area real estate photographer recco" — person actively hiring, score 4/5
+2. **r/fsbo** — "best FSBO photos he'd ever seen" with drone — validates product need
+3. **r/RealEstatePhotography** — $75 drone + $75/1000 SQFT market rate — validates $175-$225 pricing
+4. **r/landlord** — "Landlord Philly PA having a hard time renting" — vacancy struggle, potential FRBO customer
+
+### Blockers Encountered
+| Platform | Status | Notes |
+|----------|--------|-------|
+| Zillow FSBO | Blocked | Bot detection (Press & Hold challenge) |
+| ByOwner.com | Partial | Listings exist but JS-rendered |
+| HotPads | Blocked | Bot detection |
+| Facebook Marketplace | Blocked | Login wall |
+| Redfin | Blocked | "Are You a Robot?" CAPTCHA |
+| Brave Search | 429 | Rate limits hit multiple times |
+| Reddit | Blocked | Direct browsing JS challenges |
+
+### What's Left
+- [ ] Cold email outreach execution (105 leads with personalized emails in Column K)
+- [ ] Manual refresh of Zillow FSBO, ByOwner weekly (supplement agent work)
+- [ ] Proxy solution investigation (residential proxies to unlock Zillow/HotPads/FB scraping)
+- [ ] r/philly thread follow-up (warm lead — photographer recommendation seeker)
+- [ ] Nextdoor Philadelphia direct navigation attempt
+
+### Key Decisions
+- **Database is comprehensive** — ~105 leads covering all target zip codes (19104, 19139, 19143, 19146, 19123, 19138, 19132, 19148, 19129, 19127)
+- **Shift to outreach mode** — priority now is email outreach execution, not more collection
+- **Platform scraping blocked** — property listing sites require residential proxies for automated scraping
+
+### ICP Breakdown (Updated)
+- Total leads in system: ~105
+- FSBO listings: 50+ (University City, West Philly, Fishtown, South Philly, North Philly)
+- Landlord/FRBO: 10+
+- New agents: 4+
+- Construction: 2
+- Marketing intel signals: 4 (new this session)
+
+---
