@@ -16,6 +16,7 @@
   - Hero: "Drone Media That Elevates Property Marketing"
   - Services: Listing drone package, walkthrough and drone, aerial photo sets, construction progress
   - Contact: info@skyeyeaerial.com, (267) 555-0147
+- **Premium Visual Upgrade (2026-05-16):** Parallax hero scroll, magnetic CTA buttons, shimmer animated submit button, enhanced navbar blur on scroll, refined play button, removed AI aesthetic/emoji, styled separators
 
 ---
 
@@ -31,18 +32,23 @@
 
 ## Lead Tracking ✓
 - **Google Sheet:** https://docs.google.com/spreadsheets/d/109eCljPdGUdKMYKdjpvGA8kQTRdLlbPvaOWpCT2v6eU/edit
-- **14 entries:** 8 competitors and 6 prospect agencies
-- **Columns:** Name, Type, Website, Contact, Email, Phone, Address, Status, Notes, Last Contacted, Follow Up Date
+- **Notion Page:** https://www.notion.so/SkyEye-Drone-Media-Small-Fish-Leads-May-2026-36af900ffeb2817eb414c8e21aeb03a5
+- **GitHub CSV:** https://github.com/Aarz-aaryan/skyeye-drone-media/blob/main/leads.csv
+- **17 new entries added** (18 total including existing): FSBOs, small landlords, new agents, construction companies
+- **Big agents archived** — Alison Simon, Navid Aberg, Mike McCann Team, John Kuester III marked ARCHIVED
+- **New leads:** 7 FSBOs, 4 construction, 3 landlords, 2 new agents, 2 property managers
 
 ---
 
 ## What's Left
-- [ ] Cold email outreach to real estate agents (need email finding tool or manual research)
+- [x] Lead research for small fish (FSBOs, landlords, new agents, construction, expired listings) ✓ DONE
+- [x] Triple-write to Notion + Google Sheet + GitHub CSV ✓ DONE
+- [ ] Cold email outreach to leads (need email finding tool or manual research)
 - [ ] Instagram/social media setup
 - [ ] Google Business Profile optimization
 - [ ] Partnership outreach (roofing companies, construction firms)
 - [ ] Track responses in Google Sheet
-- [ ] Upgrade Vercel plan to disable SSO on preview deployments ( Hobby plan blocks this)
+- [ ] Upgrade Vercel plan to disable SSO on preview deployments (Hobby plan blocks this)
 
 ---
 
