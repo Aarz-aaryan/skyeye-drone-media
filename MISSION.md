@@ -73,22 +73,32 @@
 
 ## Lead Tracking ✓
 
-### Current Leads (100 entries - MISSION COMPLETE)
-- **75 FSBO listings** (University City, West Philly, South Philly, Fishtown, North Philly)
-- **14 Landlords** (FRBO rentals from HotPads, Craigslist, Facebook Marketplace)
-- **8 New Agents** (small practice/broker agents in target areas)
-- **3 Construction companies** (small contractors serving the area)
+### Current Leads (100 entries — REBUILT 2026-05-28)
+**All leads now have CONFIRMED phone + email from public sources.**
+
+| Source | Leads | Notes |
+|--------|-------|-------|
+| Compass Philadelphia | 555 merged → top 100 | 582 scraped, deduped by email, teams removed |
+| FastExpert | 40 | Philadelphia ZIPs 19104/19139/19143/19125/19147 |
+| Yelp | 6 | University City, Fishtown, West Philadelphia agents |
+
+**Lead Breakdown:**
+- **100 Agents** — all with confirmed phone + email
+- All individual agents (team names excluded for personal outreach)
+- Service area: Philadelphia, PA (primarily University City, West Philly, Fishtown, Graduate Hospital)
 
 **Google Sheet:** https://docs.google.com/spreadsheets/d/109eCljPdGUdKMYKdjpvGA8kQTRdLlbPvaOWpCT2v6eU/edit
-**Notion Page:** https://www.notion.so/SkyEye-Drone-Media-Small-Fish-Leads-May-2026-36af900ffeb2817eb414c8e21aeb03a5
 **GitHub CSV:** https://github.com/Aarz-aaryan/skyeye-drone-media/blob/main/leads.csv
 
-### Personalized Emails ✓ (Column K added)
+### Personalized Emails ✓ (Column K)
 Each of the 100 leads has a unique personalized email draft in Column K:
-- References specific listing address and price
-- Uses appropriate pricing ($125-$225 based on type)
-- Sounds human, not AI-generated
-- No template language — each is unique to the listing
+- References drone + 68% faster sale stat + $175 price + 24hr turnaround
+- Personalized first-name greeting
+- 3 rotating templates to avoid pattern detection
+- Human tone, no AI-isms
+
+### Previous Lead List (Deprecated — no confirmed contacts)
+The old lead list (75 FSBOs, 14 landlords, 8 agents, 3 contractors) had **zero confirmed phone/email** — ByOwner.com and Zillow hide contact info behind login walls. Replaced entirely with agent directory leads.
 
 ### Big Fish (Archived)
 - Alison Simon, Navid Aberg, Mike McCann Team, John Kuester III marked ARCHIVED
