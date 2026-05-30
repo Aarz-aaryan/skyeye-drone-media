@@ -641,7 +641,7 @@ const Home = () => {
           </CTAGroup>
           <HeroMeta>
             <MetaItem>Standard packages: $149 to $249</MetaItem>
-            <MetaItem>Luxury and commercial: $299+</MetaItem>
+            <MetaItem>Luxury and commercial: $299</MetaItem>
             <MetaItem>Delivery in 24 to 48 hours</MetaItem>
             <MetaItem>Penn, Drexel, UPenn area specialists</MetaItem>
           </HeroMeta>

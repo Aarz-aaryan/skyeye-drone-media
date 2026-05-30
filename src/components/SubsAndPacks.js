@@ -301,7 +301,7 @@ const packs = [
   { 
     name: 'Luxury & Commercial', 
     wasPrice: '$350',
-    price: '$299+',
+    price: '$299',
     savePercent: 15,
     desc: 'Custom production for high-end or commercial properties.', 
     features: [
