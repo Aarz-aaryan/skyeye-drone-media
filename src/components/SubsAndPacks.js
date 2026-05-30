@@ -93,11 +93,11 @@ const PricingCard = styled.div`
 
   ${props => props.featured && `
     &::after {
-      content: 'Most Popular';
+      content: 'Best Value';
       position: absolute;
       top: 1.25rem;
       right: -2rem;
-      background: linear-gradient(135deg, #00d4ff, #00ff88);
+      background: linear-gradient(135deg, #f1c16b, #ff9f43);
       color: #0a0f1a;
       font-size: 0.65rem;
       font-weight: 700;
@@ -105,6 +105,7 @@ const PricingCard = styled.div`
       text-transform: uppercase;
       padding: 0.4rem 2.5rem;
       transform: rotate(45deg);
+      box-shadow: 0 4px 20px rgba(241, 193, 107, 0.4);
     }
   `}
 
@@ -128,6 +129,21 @@ const PackName = styled.h3`
   font-weight: 700;
 `;
 
+const PackPriceWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.35rem;
+`;
+
+const WasPrice = styled.span`
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.35);
+  text-decoration: line-through;
+  font-weight: 500;
+`;
+
 const PackPrice = styled.div`
   font-size: 3.25rem;
   font-weight: 800;
@@ -137,9 +153,35 @@ const PackPrice = styled.div`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 0.35rem;
   background-size: 200% auto;
   animation: ${props => (props.featured ? css`${shimmer} 4s linear infinite` : 'none')};
+`;
+
+const SaveBadge = styled.div`
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.3rem 0.75rem;
+  border-radius: 50px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+`;
+
+const BestValueBadge = styled.div`
+  position: absolute;
+  top: 1.25rem;
+  left: -2rem;
+  background: linear-gradient(135deg, #f1c16b 0%, #ff9f43 100%);
+  color: #0a0f1a;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0.4rem 2.5rem;
+  transform: rotate(-45deg);
+  box-shadow: 0 4px 20px rgba(241, 193, 107, 0.4);
 `;
 
 const PackPeriod = styled.span`
@@ -225,7 +267,9 @@ const SubscribeBtn = styled.a`
 const packs = [
   { 
     name: 'Standard', 
-    price: '$175', 
+    wasPrice: '$175',
+    price: '$149',
+    savePercent: 15,
     desc: 'Essentials for single-family listings and condos.', 
     features: [
       'Aerial highlight reel (60 to 90 seconds)',
@@ -239,7 +283,9 @@ const packs = [
   },
   { 
     name: 'Listing Plus', 
-    price: '$299', 
+    wasPrice: '$299',
+    price: '$249',
+    savePercent: 17,
     desc: 'Most popular package for featured listings.', 
     features: [
       'Aerial and ground walkthrough',
@@ -254,7 +300,9 @@ const packs = [
   },
   { 
     name: 'Luxury & Commercial', 
-    price: '$350+', 
+    wasPrice: '$350',
+    price: '$299+',
+    savePercent: 15,
     desc: 'Custom production for high-end or commercial properties.', 
     features: [
       'Extended aerial coverage',
@@ -304,8 +352,13 @@ const SubsAndPacks = () => {
               featured={p.featured}
               className={`reveal reveal-delay-${i + 1}`}
             >
+              {p.featured && <BestValueBadge>Best Value</BestValueBadge>}
               <PackName>{p.name}</PackName>
-              <PackPrice featured={p.featured}>{p.price}</PackPrice>
+              <PackPriceWrapper>
+                <WasPrice>Was {p.wasPrice}</WasPrice>
+                <PackPrice featured={p.featured}>{p.price}</PackPrice>
+              </PackPriceWrapper>
+              <SaveBadge>Save {p.savePercent}%</SaveBadge>
               <PackPeriod>per project</PackPeriod>
               <PackDesc>{p.desc}</PackDesc>
               <PackFeatures>

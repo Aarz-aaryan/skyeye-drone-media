@@ -174,10 +174,10 @@ const PriceTag = styled.div`
 `;
 
 const services = [
-  { icon: 'MLS', title: 'Listing Drone Package', desc: 'Aerial coverage and ground-level establishing shots for MLS, Zillow, and marketing. Stabilized edits with licensed music.', price: 'Standard: $175 to $299' },
-  { icon: 'TOUR', title: 'Walkthrough and Drone', desc: 'Exterior drone reveal, interior walkthrough, and neighborhood context for featured listings.', price: 'From $299' },
-  { icon: 'LUX', title: 'Luxury and Commercial', desc: 'High-end exteriors, rooftops, and architectural details with controlled pacing and refined color.', price: 'Luxury and commercial: $350 and up' },
-  { icon: 'STILLS', title: 'Aerial Photo Set', desc: 'High-resolution aerial stills and angle options for listing cover images and collateral.', price: 'From $175' },
+  { icon: 'MLS', title: 'Listing Drone Package', desc: 'Aerial coverage and ground-level establishing shots for MLS, Zillow, and marketing. Stabilized edits with licensed music.', price: 'Standard: $149 to $249' },
+  { icon: 'TOUR', title: 'Walkthrough and Drone', desc: 'Exterior drone reveal, interior walkthrough, and neighborhood context for featured listings.', price: 'From $249' },
+  { icon: 'LUX', title: 'Luxury and Commercial', desc: 'High-end exteriors, rooftops, and architectural details with controlled pacing and refined color.', price: 'Luxury and commercial: $299 and up' },
+  { icon: 'STILLS', title: 'Aerial Photo Set', desc: 'High-resolution aerial stills and angle options for listing cover images and collateral.', price: 'From $149' },
   { icon: 'PROGRESS', title: 'Construction Progress', desc: 'Monthly or milestone-based aerial documentation with consistent framing for developers.', price: 'Custom quote' },
 ];
 
