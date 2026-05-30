@@ -429,31 +429,29 @@ const LuxuryIcon = ({ color }) => (
   </svg>
 );
 
-// Camera aperture/aerial photo icon
+// Aerial photo set — stacked images with drone perspective hint
 const StillsIcon = ({ color }) => (
-<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="stillGrad" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stopColor="#ffb400"/>
         <stop offset="100%" stopColor="#ff6b00"/>
       </linearGradient>
     </defs>
-    {/* Camera body */}
-    <rect x="6" y="14" width="36" height="24" rx="4" stroke={color} strokeWidth="2"/>
-    {/* Lens outer */}
-    <circle cx="24" cy="26" r="10" stroke={color} strokeWidth="2"/>
-    {/* Aperture blades */}
-    <path d="M24 18L27 22L24 26L21 22Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
-    <path d="M30 22L27 22L24 26L27 30Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
-<path d="M30 30L27 30L24 26L21 30Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
-    <path d="M18 30L21 30L24 26L18 26Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
-    {/* Lens center */}
-    <circle cx="24" cy="26" r="3" stroke={color} strokeWidth="1.5"/>
-    <circle cx="24" cy="26" r="1" fill={color}/>
-    {/* Hot shoe */}
-<path d="M18 14V10M24 14V10M30 14V10" stroke={color} strokeWidth="2" strokeLinecap="round"/>
- {/* Aerial view hint */}
-    <path d="M40 8L44 4M40 4L44 8" stroke={color} strokeWidth="1.5" strokeLinecap="round" opacity="0.6"/>
+    {/* Back photo card */}
+    <rect x="10" y="6" width="28" height="22" rx="3" stroke={color} strokeWidth="2" opacity="0.4"/>
+    {/* Middle photo card */}
+    <rect x="8" y="10" width="28" height="22" rx="3" stroke={color} strokeWidth="2" opacity="0.65"/>
+    {/* Front photo card (main) */}
+    <rect x="6" y="14" width="28" height="22" rx="3" stroke={color} strokeWidth="2"/>
+    {/* Photo content — small house/property silhouette */}
+    <path d="M20 26L14 30H30L26 26H20Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round" opacity="0.8"/>
+    {/* Sky/terrain line */}
+    <path d="M10 33C14 31 18 32 24 31C30 30 34 32 38 31" stroke={color} strokeWidth="1.5" strokeLinecap="round" opacity="0.6"/>
+    {/* Drone camera hovering top-right */}
+    <circle cx="38" cy="10" r="4" stroke={color} strokeWidth="2"/>
+    <circle cx="38" cy="10" r="1.5" fill={color}/>
+    <path d="M34 6L38 2M42 6L38 2" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
   </svg>
 );
 
