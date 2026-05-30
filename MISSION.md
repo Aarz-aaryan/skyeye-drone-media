@@ -132,16 +132,29 @@ The old lead list (75 FSBOs, 14 landlords, 8 agents, 3 contractors) had **zero c
 
 ---
 
+## n8n Automation ( Jarvis + Aarz — 2026-05-28 )
+**GitHub repo:** https://github.com/Aarz-aaryan/n8n
+**Status file:** https://github.com/Aarz-aaryan/n8n/blob/main/status.md (Jarvis-maintained ops doc)
+
+All workflows cleared from n8n 2026-05-28. JarvIs will rebuild once credentials are added.
+
+### Workflows in n8n: NONE (cleared 2026-05-28)
+
+**BLOCKED:** Google Sheets OAuth2 + Gmail OAuth2 credentials needed before any workflow activates.
+
 ## What's Left
 - [x] Lead research for small fish (FSBOs, landlords, new agents) ✓ DONE
 - [x] Triple-write to Notion + Google Sheet + GitHub CSV ✓ DONE
 - [x] Personalized email drafts for all 100 leads ✓ DONE (Column K)
-- [ ] Cold email outreach to leads (need email finding tool or manual research)
+- [x] n8n workflows built + imported ✓ DONE
+- [ ] Add Google Sheets + Gmail OAuth2 credentials to n8n (user action needed)
+- [ ] Activate workflows + test with 3 leads
+- [ ] Follow-up workflow (3-day sequence)
+- [ ] Reply tracker workflow
+- [ ] Craigslist FSBO monitor
 - [ ] Instagram/social media setup
 - [ ] Google Business Profile optimization
 - [ ] Partnership outreach (roofing companies, construction firms)
-- [ ] Track responses in Google Sheet
-- [ ] Upgrade Vercel plan to disable SSO on preview deployments
 
 ---
 
