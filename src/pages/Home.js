@@ -458,10 +458,10 @@ const SplitVisual = styled.div`
 `;
 
 const SplitSide = styled.div`
+  position: relative;
   background: ${props => props.variant === 'before'
     ? 'linear-gradient(145deg, #151c2c, #0d1220)'
     : 'linear-gradient(145deg, #1a2840, #0f1a2e)'};
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -470,6 +470,7 @@ const SplitSide = styled.div`
   letter-spacing: 2px;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.5);
+  overflow: hidden;
 
   &::before {
     content: '';
@@ -518,12 +519,42 @@ const CardMeta = styled.p`
 `;
 
 const Portfolio = [
-  { title: 'University City Townhome', detail: 'Aerial reveal and exterior coverage delivered MLS-ready within 24 hours.' },
-  { title: 'Center City Office', detail: 'Rooftop sweep and skyline context shots for a commercial listing.' },
-  { title: 'West Philly New Build', detail: 'Progress capture and listing launch reel for the developer.' },
-  { title: 'Historic Rowhome', detail: 'Ground and drone pairing to show the block and walkability.' },
-  { title: 'Campus Adjacent Condo', detail: 'Highlighting proximity to Penn and Drexel with a focused aerial approach.' },
-  { title: 'Luxury Renovation', detail: 'Sunset exterior and establishing shots with controlled pacing.' }
+  {
+    title: 'University City Townhome',
+    detail: 'Aerial reveal and exterior coverage delivered MLS-ready within 24 hours.',
+    before: '/before_rowhouse.jpg',
+    after: '/after_rowhouse.jpg',
+  },
+  {
+    title: 'Center City Office',
+    detail: 'Rooftop sweep and skyline context shots for a commercial listing.',
+    before: '/before_commercial.jpg',
+    after: '/after_commercial.jpg',
+  },
+  {
+    title: 'West Philly New Build',
+    detail: 'Progress capture and listing launch reel for the developer.',
+    before: '/before_newbuild.jpg',
+    after: '/after_newbuild.jpg',
+  },
+  {
+    title: 'Historic Rowhome',
+    detail: 'Ground and drone pairing to show the block and walkability.',
+    before: '/before_condo.jpg',
+    after: '/after_condo.jpg',
+  },
+  {
+    title: 'Campus Adjacent Condo',
+    detail: 'Highlighting proximity to Penn and Drexel with a focused aerial approach.',
+    before: '/before_suburban.jpg',
+    after: '/after_suburban.jpg',
+  },
+  {
+    title: 'Luxury Renovation',
+    detail: 'Sunset exterior and establishing shots with controlled pacing.',
+    before: '/before_luxury.jpg',
+    after: '/after_luxury.jpg',
+  },
 ];
 
 const Home = () => {
@@ -685,11 +716,11 @@ const Home = () => {
               >
                 <SplitVisual>
                   <SplitSide variant="before">
-                    Before
+                    <img src={p.before} alt="Before" style={{ position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover',opacity:0.55 }} />
                     <SplitLabel>Before</SplitLabel>
                   </SplitSide>
                   <SplitSide variant="after">
-                    After
+                    <img src={p.after} alt="After" style={{ position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover' }} />
                     <SplitLabel>After</SplitLabel>
                   </SplitSide>
                 </SplitVisual>
