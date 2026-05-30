@@ -262,7 +262,7 @@ const Footer = () => {
     <FooterWrapper ref={sectionRef} className="reveal">
       <Container>
         <BrandSection className="reveal">
-          <Logo to="/">SkyEye<span>DM</span></Logo>
+          <Logo to="/"><img src="/logo.png" alt="SkyEye Drone Media" style={{height: '36px', width: 'auto'}}/></Logo>
           <Tagline>Aerial drone videography for University City and greater Philadelphia. Professional real estate media that sells properties faster.</Tagline>
           <ContactInfo>
             <ContactItem href="mailto:info@skyeyeaerial.com">info@skyeyeaerial.com</ContactItem>
