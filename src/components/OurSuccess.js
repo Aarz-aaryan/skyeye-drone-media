@@ -104,7 +104,7 @@ const stats = [
   { number: '24', label: 'Hour Turnaround' },
   { number: '4K', label: 'Video Delivery', suffix: '' },
   { number: '100%', label: 'MLS Ready', suffix: '' },
-  { number: '100+', label: 'Properties Covered', suffix: '' },
+  { number: '47', label: 'Properties Covered' },
 ];
 
 const OurSuccess = () => {
