@@ -4,23 +4,23 @@ import styled, { keyframes, css } from 'styled-components';
 // ============ ANIMATIONS ============
 const float = keyframes`
   0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(3deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
 `;
 
 const floatSlow = keyframes`
   0%, 100% { transform: translateY(0px) translateX(0px); }
-  33% { transform: translateY(-15px) translateX(10px); }
-  66% { transform: translateY(-8px) translateX(-10px); }
+  33% { transform: translateY(-8px) translateX(5px); }
+  66% { transform: translateY(-4px) translateX(-5px); }
 `;
 
 const pulse = keyframes`
   0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.1); }
+  50% { opacity: 0.5; transform: scale(1.05); }
 `;
 
 const pulseGlow = keyframes`
-  0%, 100% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), 0 0 40px rgba(0, 212, 255, 0.1); }
-  50% { box-shadow: 0 0 30px rgba(0, 212, 255, 0.5), 0 0 60px rgba(0, 212, 255, 0.2); }
+  0%, 100% { box-shadow: 0 0 15px rgba(0, 212, 255, 0.2), 0 0 30px rgba(0, 212, 255, 0.08); }
+  50% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.35), 0 0 40px rgba(0, 212, 255, 0.15); }
 `;
 
 const shimmer = keyframes`
@@ -30,9 +30,9 @@ const shimmer = keyframes`
 
 const drift = keyframes`
   0% { transform: translate(0, 0); }
-  25% { transform: translate(30px, -20px); }
-  50% { transform: translate(10px, -40px); }
-  75% { transform: translate(-20px, -20px); }
+  25% { transform: translate(15px, -10px); }
+  50% { transform: translate(5px, -20px); }
+  75% { transform: translate(-10px, -10px); }
   100% { transform: translate(0, 0); }
 `;
 
@@ -59,7 +59,7 @@ const BackgroundMesh = styled.div`
   overflow: hidden;
   z-index: 0;
 
-  &::before {
+&::before {
     content: '';
     position: absolute;
     top: -50%;
@@ -70,7 +70,7 @@ const BackgroundMesh = styled.div`
       radial-gradient(ellipse 80% 50% at 20% 30%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
       radial-gradient(ellipse 60% 40% at 80% 70%, rgba(0, 255, 136, 0.05) 0%, transparent 50%),
       radial-gradient(ellipse 50% 30% at 50% 50%, rgba(99, 102, 241, 0.04) 0%, transparent 50%);
-    animation: ${drift} 20s ease-in-out infinite;
+    animation: ${drift} 30s ease-in-out infinite;
   }
 
 &::after {
@@ -101,7 +101,7 @@ const Orb = styled.div`
   `}
 `;
 
-// Floating particles
+// Floating particles (reduced from 10 to 4)
 const Particle = styled.div`
   position: absolute;
   width: ${props => props.$size || 4}px;
@@ -109,7 +109,7 @@ const Particle = styled.div`
   background: radial-gradient(circle, rgba(0, 212, 255, 0.8), transparent);
   border-radius: 50%;
   pointer-events: none;
-  animation: ${float} ${props => props.$duration || 6}s ease-in-out infinite;
+  animation: ${float} ${props => props.$duration || 10}s ease-in-out infinite;
   animation-delay: ${props => props.$delay || 0}s;
 
   ${({ $top, $left }) => css`
@@ -180,7 +180,7 @@ const Title = styled.h2`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: ${shimmer} 3s linear infinite;
+    animation: ${shimmer} 4s linear infinite;
   }
 `;
 
@@ -241,11 +241,11 @@ const ServiceCard = styled.div`
   }
 
 &:hover {
-    transform: translateY(-12px) scale(1.02);
+    transform: translateY(-6px) scale(1.01);
     border-color: rgba(0, 212, 255, 0.25);
     box-shadow: 
-      0 40px 80px rgba(0, 0, 0, 0.4),
-      0 0 80px rgba(0, 212, 255, 0.08),
+      0 20px 40px rgba(0, 0, 0, 0.3),
+      0 0 40px rgba(0, 212, 255, 0.05),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
  background: rgba(255, 255, 255, 0.05);
   }
@@ -290,7 +290,7 @@ const IconContainer = styled.div`
     border-radius: 22px;
     background: linear-gradient(135deg, ${props => props.$gradient || 'rgba(0, 212, 255, 0.2)'}, rgba(0, 255, 136, 0.08));
     border: 1px solid ${props => props.$borderColor || 'rgba(0, 212, 255, 0.3)'};
-    animation: ${pulseGlow} 3s ease-in-out infinite;
+    animation: ${pulseGlow} 6s ease-in-out infinite;
     animation-delay: ${props => props.$delay || '0s'};
   }
 `;
@@ -301,13 +301,13 @@ const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: ${float} 4s ease-in-out infinite;
+  animation: ${float} 8s ease-in-out infinite;
   animation-delay: ${props => props.$delay || '0s'};
 
   svg {
     width: 40px;
     height: 40px;
-    filter: drop-shadow(0 0 8px ${props => props.$glowColor || 'rgba(0, 212, 255, 0.6)'});
+    filter: drop-shadow(0 0 6px ${props => props.$glowColor || 'rgba(0, 212, 255, 0.6)'});
   }
 `;
 
@@ -352,55 +352,132 @@ const PriceTag = styled.div`
 `;
 
 // ============ SVG ICONS ============
+// Drone/Quadcopter icon for Listing Drone Package
 const DroneIcon = ({ color }) => (
   <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M24 8L12 16H6L12 24L6 32H12L24 40L36 32H42L36 24L42 16H36L24 8Z" stroke={color} strokeWidth="2" strokeLinejoin="round"/>
-    <circle cx="24" cy="24" r="6" stroke={color} strokeWidth="2"/>
+    <defs>
+      <linearGradient id="droneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#00d4ff"/>
+        <stop offset="100%" stopColor="#00ff88"/>
+      </linearGradient>
+    </defs>
+    {/* Drone body */}
+    <ellipse cx="24" cy="24" rx="8" ry="4" stroke={color} strokeWidth="2"/>
+    {/* Arms */}
+    <path d="M16 20L8 12M32 20L40 12M16 28L8 36M32 28L40 36" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+    {/* Motors */}
+    <circle cx="8" cy="12" r="3" stroke={color} strokeWidth="2"/>
+    <circle cx="40" cy="12" r="3" stroke={color} strokeWidth="2"/>
+    <circle cx="8" cy="36" r="3" stroke={color} strokeWidth="2"/>
+    <circle cx="40" cy="36" r="3" stroke={color} strokeWidth="2"/>
+    {/* Propeller hints */}
+    <path d="M512H11M37 12H43M5 36H11M37 36H43" stroke={color} strokeWidth="1.5" strokeLinecap="round" opacity="0.6"/>
+    {/* Camera lens */}
     <circle cx="24" cy="24" r="2" fill={color}/>
-    <path d="M24 4V8M24 40V44M4 16L8 16M40 16L44 16M4 32L8 32M40 32L44 32" stroke={color} strokeWidth="2" strokeLinecap="round"/>
   </svg>
 );
 
+// House with drone camera for Walkthrough and Drone
 const TourIcon = ({ color }) => (
-  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="8" y="20" width="32" height="20" rx="2" stroke={color} strokeWidth="2"/>
-    <path d="M8 28H40" stroke={color} strokeWidth="2"/>
-    <path d="M16 28V40M32 28V40" stroke={color} strokeWidth="2"/>
-    <path d="M14 20L24 12L34 20" stroke={color} strokeWidth="2" strokeLinejoin="round"/>
-    <circle cx="24" cy="28" r="3" stroke={color} strokeWidth="2"/>
-    <path d="M24 16V20" stroke={color} strokeWidth="2"/>
+<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="tourGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#00ff88"/>
+        <stop offset="100%" stopColor="#00d4ff"/>
+      </linearGradient>
+    </defs>
+    {/* House structure */}
+    <path d="M24 8L8 20V40H40V20L24 8Z" stroke={color} strokeWidth="2" strokeLinejoin="round"/>
+    {/* Roof highlight */}
+    <path d="M24 8L8 20H40L24 8Z" stroke={color} strokeWidth="2" strokeLinejoin="round" opacity="0.7"/>
+    {/* Door */}
+    <rect x="20" y="28" width="8" height="12" stroke={color} strokeWidth="2"/>
+    {/* Windows */}
+    <rect x="12" y="24" width="6" height="6" stroke={color} strokeWidth="1.5" rx="1"/>
+    <rect x="30" y="24" width="6" height="6" stroke={color} strokeWidth="1.5" rx="1"/>
+    {/* Drone camera hovering */}
+    <circle cx="38" cy="10" r="4" stroke={color} strokeWidth="2"/>
+    <circle cx="38" cy="10" r="1.5" fill={color}/>
+    <path d="M34 6L38 2M42 6L38 2" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
   </svg>
 );
 
+// Luxury skyscraper icon
 const LuxuryIcon = ({ color }) => (
   <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M24 6L6 18V40H42V18L24 6Z" stroke={color} strokeWidth="2" strokeLinejoin="round"/>
-    <path d="M6 18L24 30L42 18" stroke={color} strokeWidth="2"/>
-    <path d="M16 40V30M32 40V30" stroke={color} strokeWidth="2"/>
-    <rect x="20" y="34" width="8" height="6" stroke={color} strokeWidth="2"/>
-    <path d="M24 6V2M20 4L24 2L28 4" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <defs>
+      <linearGradient id="luxGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+        <stop offset="0%" stopColor="#6366f1"/>
+        <stop offset="100%" stopColor="#8b5cf6"/>
+      </linearGradient>
+    </defs>
+    {/* Main tower */}
+    <path d="M18 44V12H30V44" stroke={color} strokeWidth="2"/>
+    {/* Spire */}
+    <path d="M24 12V4" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+    <path d="M20 8L24 4L28 8" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    {/* Architectural details - horizontal lines */}
+    <path d="M18 20H30M18 28H30M18 36H30" stroke={color} strokeWidth="1.5" opacity="0.5"/>
+    {/* Side wings */}
+    <path d="M10 44V24H18M38 44V24H30" stroke={color} strokeWidth="2"/>
+    {/* Crown detail */}
+    <path d="M10 24L14 18H34L38 24" stroke={color} strokeWidth="2" strokeLinejoin="round"/>
+    {/* Windows */}
+    <rect x="21" y="14" width="6" height="4" stroke={color} strokeWidth="1.5" rx="0.5"/>
+    <rect x="21" y="22" width="6" height="4" stroke={color} strokeWidth="1.5" rx="0.5"/>
+    <rect x="21" y="30" width="6" height="4" stroke={color} strokeWidth="1.5" rx="0.5"/>
   </svg>
 );
 
+// Camera aperture/aerial photo icon
 const StillsIcon = ({ color }) => (
-  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="6" y="10" width="36" height="28" rx="4" stroke={color} strokeWidth="2"/>
-    <circle cx="24" cy="24" r="8" stroke={color} strokeWidth="2"/>
-    <circle cx="24" cy="24" r="4" stroke={color} strokeWidth="2"/>
-    <circle cx="24" cy="24" r="1.5" fill={color}/>
-    <path d="M16 10V6M32 10V6" stroke={color} strokeWidth="2" strokeLinecap="round"/>
-    <path d="M40 18L44 14M40 30L44 34" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="stillGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#ffb400"/>
+        <stop offset="100%" stopColor="#ff6b00"/>
+      </linearGradient>
+    </defs>
+    {/* Camera body */}
+    <rect x="6" y="14" width="36" height="24" rx="4" stroke={color} strokeWidth="2"/>
+    {/* Lens outer */}
+    <circle cx="24" cy="26" r="10" stroke={color} strokeWidth="2"/>
+    {/* Aperture blades */}
+    <path d="M24 18L27 22L24 26L21 22Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
+    <path d="M30 22L27 22L24 26L27 30Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
+<path d="M30 30L27 30L24 26L21 30Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
+    <path d="M18 30L21 30L24 26L18 26Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round"/>
+    {/* Lens center */}
+    <circle cx="24" cy="26" r="3" stroke={color} strokeWidth="1.5"/>
+    <circle cx="24" cy="26" r="1" fill={color}/>
+    {/* Hot shoe */}
+<path d="M18 14V10M24 14V10M30 14V10" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+ {/* Aerial view hint */}
+    <path d="M40 8L44 4M40 4L44 8" stroke={color} strokeWidth="1.5" strokeLinecap="round" opacity="0.6"/>
   </svg>
 );
 
+// Construction crane/building growth icon
 const ProgressIcon = ({ color }) => (
   <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M8 40V20L16 14V40" stroke={color} strokeWidth="2" strokeLinejoin="round"/>
-    <path d="M16 40V12L24 8V40" stroke={color} strokeWidth="2" strokeLinejoin="round"/>
-    <path d="M24 40V16L32 12V40" stroke={color} strokeWidth="2" strokeLinejoin="round"/>
-    <path d="M32 40V20L40 16V40" stroke={color} strokeWidth="2" strokeLinejoin="round"/>
-    <path d="M4 40H44" stroke={color} strokeWidth="2" strokeLinecap="round"/>
-    <path d="M8 32H16M24 28H32" stroke={color} strokeWidth="2" strokeLinecap="round"/>
+    <defs>
+      <linearGradient id="progressGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+        <stop offset="0%" stopColor="#ff6432"/>
+<stop offset="100%" stopColor="#ff9a5c"/>
+      </linearGradient>
+    </defs>
+    {/* Building under construction - growing bars */}
+    <rect x="8" y="32" width="8" height="12" stroke={color} strokeWidth="2"/>
+    <rect x="20" y="24" width="8" height="20" stroke={color} strokeWidth="2"/>
+    <rect x="32" y="16" width="8" height="28" stroke={color} strokeWidth="2"/>
+    {/* Growth arrow */}
+    <path d="M6 40L24 20L42 40" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M36 20L42 20L42 26" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    {/* Construction detail lines */}
+    <path d="M10 36H14M22 28H26M34 20H38" stroke={color} strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+    {/* Crane arm hint */}
+    <path d="M4 8H16L14 12H6L4 8Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round" opacity="0.4"/>
+    <path d="M10 8V4" stroke={color} strokeWidth="1.5" strokeLinecap="round" opacity="0.4"/>
   </svg>
 );
 
@@ -488,24 +565,18 @@ const ServicesSection = () => {
       <BackgroundMesh />
       <GridLines />
       
-      {/* Floating orbs */}
-      <Orb $size={400} $top={-10} $left={-10} $color="rgba(0, 212, 255, 0.08)" $delay={0} $duration={15} />
-      <Orb $size={300} $top={60} $left={70} $color="rgba(0, 255, 136, 0.06)" $delay={2} $duration={18} />
-      <Orb $size={350} $top={30} $left={40} $color="rgba(99, 102, 241, 0.05)" $delay={4} $duration={20} />
-      <Orb $size={250} $top={70} $left={10} $color="rgba(0, 212, 255, 0.05)" $delay={1} $duration={16} />
- <Orb $size={280} $top={10} $left={60} $color="rgba(0, 255, 136, 0.04)" $delay={3} $duration={14} />
+      {/* Floating orbs - reduced motion durations */}
+      <Orb $size={400} $top={-10} $left={-10} $color="rgba(0, 212, 255, 0.08)" $delay={0} $duration={25} />
+      <Orb $size={300} $top={60} $left={70} $color="rgba(0, 255, 136, 0.06)" $delay={2} $duration={28} />
+      <Orb $size={350} $top={30} $left={40} $color="rgba(99, 102, 241, 0.05)" $delay={4} $duration={32} />
+      <Orb $size={250} $top={70} $left={10} $color="rgba(0, 212, 255, 0.05)" $delay={1} $duration={26} />
+      <Orb $size={280} $top={10} $left={60} $color="rgba(0, 255, 136, 0.04)" $delay={3} $duration={24} />
 
-      {/* Floating particles */}
-      <Particle $size={3} $top={15} $left={10} $delay={0} $duration={5} />
-      <Particle $size={2} $top={25} $left={85} $delay={1} $duration={7} />
-      <Particle $size={4} $top={60} $left={5} $delay={2} $duration={6} />
-      <Particle $size={2} $top={80} $left={90} $delay={0.5} $duration={8} />
-      <Particle $size={3} $top={40} $left={95} $delay={1.5} $duration={5.5} />
-      <Particle $size={2} $top={90} $left={20} $delay={3} $duration={7.5} />
-      <Particle $size={3} $top={10} $left={50} $delay={2.5} $duration={6.5} />
-      <Particle $size={2} $top={70} $left={50} $delay={1.2} $duration={5.2} />
-      <Particle $size={4} $top={35} $left={30} $delay={0.8} $duration={7.2} />
-      <Particle $size={2} $top={55} $left={70} $delay={2.2} $duration={6.2} />
+      {/* Floating particles - reduced from 10 to 4 */}
+      <Particle $size={4} $top={15} $left={10} $delay={0} $duration={10} />
+      <Particle $size={3} $top={25} $left={85} $delay={2} $duration={12} />
+      <Particle $size={4} $top={60} $left={5} $delay={4} $duration={11} />
+      <Particle $size={3} $top={80} $left={90} $delay={6} $duration={13} />
 
       <Container>
         <Header className="reveal">
@@ -524,7 +595,7 @@ const ServicesSection = () => {
               >
                 <CardGlow $color={s.orbColor} />
                 <IconContainer 
-                  $gradient={s.gradient} 
+                  $gradient={s.gradient}
                   $borderColor={s.borderColor}
                   $delay={`${i * 0.5}s`}
                 >
