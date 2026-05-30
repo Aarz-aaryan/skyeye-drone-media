@@ -431,22 +431,33 @@ const PortfolioCard = styled.div`
   }
 `;
 
-const SplitVisual = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  height: 180px;
-  position: relative;
+const CardImage = styled.div`
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #1a2035, #2a3050);
   overflow: hidden;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  ${PortfolioCard}:hover & img {
+    transform: scale(1.05);
+  }
 
   &::after {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(
-      135deg,
-      rgba(0, 212, 255, 0.1) 0%,
+      to bottom,
       transparent 50%,
-      rgba(0, 255, 136, 0.08) 100%
+      rgba(10, 15, 26, 0.5) 100%
     );
     opacity: 0;
     transition: opacity 0.4s ease;
@@ -455,50 +466,6 @@ const SplitVisual = styled.div`
   ${PortfolioCard}:hover &::after {
     opacity: 1;
   }
-`;
-
-const SplitSide = styled.div`
-  position: relative;
-  background: ${props => props.variant === 'before'
-    ? 'linear-gradient(145deg, #151c2c, #0d1220)'
-    : 'linear-gradient(145deg, #1a2840, #0f1a2e)'};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      ${props => props.variant === 'before' ? '135deg' : '225deg'},
-      rgba(0, 212, 255, 0.08) 0%,
-      transparent 60%
-    );
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-
-  ${PortfolioCard}:hover &::before {
-    opacity: 1;
-  }
-`;
-
-const SplitLabel = styled.span`
-  position: absolute;
-  bottom: 0.75rem;
-  left: 0.75rem;
-  font-size: 0.65rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
-  z-index: 1;
 `;
 
 const CardBody = styled.div`
@@ -521,39 +488,33 @@ const CardMeta = styled.p`
 const Portfolio = [
   {
     title: 'University City Rowhouse',
-    detail: 'Ground-level street view reveals the block — aerial shows the full lot, roof condition, and curb appeal from above.',
-    before: '/rowhouse_before.jpg',
-    after: '/rowhouse_after.jpg',
+    detail: 'Aerial reveal of a classic Philly rowhome — roofline, lot depth, and street context that ground photos miss.',
+    image: '/rowhouse_after.jpg',
   },
   {
     title: 'Suburban Colonial',
-    detail: 'Standard ground shots miss the backyard scale — drone aerial shows the full property footprint and landscaping context.',
-    before: '/suburban_before.jpg',
-    after: '/suburban_after.jpg',
+    detail: 'Full property footprint from above — driveway, backyard, and landscaping context for the full picture.',
+    image: '/suburban_after.jpg',
   },
   {
     title: 'Philly Rowhome',
-    detail: 'Dense street view hides the property character — aerial perspective captures roofline, chimney, and neighborhood position.',
-    before: '/philly_before.jpg',
-    after: '/philly_after.jpg',
+    detail: 'Bird\'s-eye angle reveals the block, roof condition, and neighborhood character from above.',
+    image: '/philly_after.jpg',
   },
   {
     title: 'New Construction',
-    detail: 'Pre-drywall aerial shows framing and lot orientation — finished drone reveal delivers the complete listing story.',
-    before: '/newbuild_before.jpg',
-    after: '/newbuild_after.jpg',
+    detail: 'Drone aerial shows lot orientation, framing context, and the complete site for new builds.',
+    image: '/newbuild_after.jpg',
   },
   {
     title: 'Luxury Estate',
-    detail: 'Curb appeal at ground level understates the grounds — drone aerial reveals pool, patios, and total property scope.',
-    before: '/luxury_before.jpg',
-    after: '/luxury_after.jpg',
+    detail: 'Pool, patios, and total grounds — captured from above to showcase the full property scope.',
+    image: '/luxury_after.jpg',
   },
   {
     title: 'Commercial Property',
-    detail: 'Street-level shots show storefront only — drone aerial shows parking, access, and surrounding traffic patterns.',
-    before: '/commercial_before.jpg',
-    after: '/commercial_after.jpg',
+    detail: 'Parking, access points, and surrounding traffic patterns — aerial view for commercial listings.',
+    image: '/commercial_after.jpg',
   },
 ];
 
@@ -689,10 +650,9 @@ const Home = () => {
         <Container>
           <SectionHeader>
             <SectionTag>Portfolio Preview</SectionTag>
-            <SectionTitle>Before and After <span>Listing Impact</span></SectionTitle>
+            <SectionTitle>Aerial Listing <span>Showcase</span></SectionTitle>
             <SectionSub>
-              We focus on steady aerials, balanced color, and framing that makes each property feel premium.
-              Here's a look at the style we deliver.
+              Every property has a story from above. Here is how drone footage elevates listings across University City, Center City, and greater Philadelphia.
             </SectionSub>
           </SectionHeader>
           <PortfolioGrid>
@@ -714,16 +674,9 @@ const Home = () => {
                   e.currentTarget.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
                 }}
               >
-                <SplitVisual>
-                  <SplitSide variant="before">
-                    <img src={p.before} alt="Before" style={{ position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover',opacity:0.55 }} />
-                    <SplitLabel>Before</SplitLabel>
-                  </SplitSide>
-                  <SplitSide variant="after">
-                    <img src={p.after} alt="After" style={{ position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover' }} />
-                    <SplitLabel>After</SplitLabel>
-                  </SplitSide>
-                </SplitVisual>
+                <CardImage>
+                  <img src={p.image} alt={p.title} loading="lazy" />
+                </CardImage>
                 <CardBody>
                   <CardTitle>{p.title}</CardTitle>
                   <CardMeta>{p.detail}</CardMeta>
