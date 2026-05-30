@@ -39,7 +39,7 @@ const shimmerBorder = keyframes`
   100% { background-position: 0% 50%; }
 `;
 
-const VIDEO_ID = 'fpNnq-M5HCg';
+const VIDEO_ID = 'eFhA4e1ustw';
 const HERO_VIDEO_URL = `https://www.youtube-nocookie.com/embed/${VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${VIDEO_ID}&controls=0&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&playsinline=1&enablejsapi=1`;
 const HERO_THUMBNAIL_URL = `https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg`;
 
