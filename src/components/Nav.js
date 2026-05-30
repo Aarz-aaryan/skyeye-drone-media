@@ -272,7 +272,7 @@ const Nav = () => {
 
   return (
     <NavWrapper $scrolled={scrolled} $scrollProgress={scrollProgress}>
-      <Logo href="/"><img src="/logo.png" alt="SkyEye Drone Media" style={{height: '36px', width: 'auto'}}/></Logo>
+      <Logo href="/">SkyEye</Logo>
       <NavLinks>
         <NavLink href="/">Home</NavLink>
         <NavLink href="/about">About</NavLink>
