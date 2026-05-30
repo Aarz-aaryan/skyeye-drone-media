@@ -1,8 +1,14 @@
 {
-  "buildCommand": "react-scripts build",
-  "outputDirectory": "build",
-  "framework": null,
+  "cleanUrls": true,
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html", "fallback": true }
+    { "source": "/favicon.ico", "destination": "/favicon.ico" }
+  ],
+  "headers": [
+    {
+      "source": "/favicon.ico",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    }
   ]
 }
