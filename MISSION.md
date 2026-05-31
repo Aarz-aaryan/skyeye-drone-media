@@ -8,8 +8,7 @@
 ---
 
 ## Website ✓
-- **Live URL:** https://skyeye-drone-v2.vercel.app (HTTP 200)
-- **Alias:** https://skyeye-drone-media.vercel.app (HTTP 200)
+- **Live URL:** https://skyeye-drone-media.vercel.app (HTTP 200)
 - **GitHub:** https://github.com/Aarz-aaryan/skyeye-drone-media
 - **Source:** `/home/Aarz/skyeye-drone-media/`
 - **Framework:** React (create-react-app) with vercel.json config

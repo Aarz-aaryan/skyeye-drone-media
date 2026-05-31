@@ -108,11 +108,25 @@ const NavCtaBtn = styled.a`
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: inline-flex;
     align-items: center;
+    white-space: nowrap;
   }
 
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  @media (max-width: 360px) {
+    padding: 0.45rem 0.75rem;
+    font-size: 0.7rem;
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
   }
 `;
 
